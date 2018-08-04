@@ -463,6 +463,7 @@
 		C1E8D3DA2114C89D0050B4A9 /* CRC16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3D22114C89D0050B4A9 /* CRC16Tests.swift */; };
 		C1E8D3DB2114C8D80050B4A9 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBE4501EAD238C0073A0B5 /* TimeInterval.swift */; };
 		C1E8D3DC2114C9000050B4A9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6BA1C826B92006DBA60 /* Data.swift */; };
+		C1E8D3DF2115CDEA0050B4A9 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4345D1CD1DA16AF300BAAD22 /* TimeZone.swift */; };
 		C1EAD6B31C826B6D006DBA60 /* MySentryAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6AE1C826B6D006DBA60 /* MySentryAlertType.swift */; };
 		C1EAD6B41C826B6D006DBA60 /* MessageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6AF1C826B6D006DBA60 /* MessageBody.swift */; };
 		C1EAD6B51C826B6D006DBA60 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6B01C826B6D006DBA60 /* MessageType.swift */; };
@@ -3249,6 +3250,7 @@
 				C1E8D3D42114C89D0050B4A9 /* MessageTests.swift in Sources */,
 				C1E8D3D52114C89D0050B4A9 /* PodStateTests.swift in Sources */,
 				C1E8D3D82114C89D0050B4A9 /* PacketTests.swift in Sources */,
+				C1E8D3DF2115CDEA0050B4A9 /* TimeZone.swift in Sources */,
 				C1E8D3DA2114C89D0050B4A9 /* CRC16Tests.swift in Sources */,
 				C1E8D3D72114C89D0050B4A9 /* CRC8Tests.swift in Sources */,
 				C1E8D3D62114C89D0050B4A9 /* TempBasalTests.swift in Sources */,
