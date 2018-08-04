@@ -487,6 +487,9 @@
 		C1EAD6E21C82BA7A006DBA60 /* CRC16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6E11C82BA7A006DBA60 /* CRC16.swift */; };
 		C1EAD6E41C82BA87006DBA60 /* CRC16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6E31C82BA87006DBA60 /* CRC16Tests.swift */; };
 		C1EB955D1C887FE5002517DF /* HistoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EB955C1C887FE5002517DF /* HistoryPage.swift */; };
+		C1EEC606211611A10091E08E /* OmnipodPumpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EEC605211611A10091E08E /* OmnipodPumpManager.swift */; };
+		C1EEC60821161A580091E08E /* OmnipodPumpManagerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EEC60721161A580091E08E /* OmnipodPumpManagerState.swift */; };
+		C1EEC60921161E590091E08E /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CE7941F9B0DAE00255374 /* OSLog.swift */; };
 		C1EF58881B3F93FE001C8C80 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EF58871B3F93FE001C8C80 /* Config.m */; };
 		C1F000481EBE352900F65163 /* RileyLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43722FAE1CB9F7630038B7F2 /* RileyLinkKit.framework */; };
 		C1F0004C1EBE68A600F65163 /* DataFrameMessageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F0004B1EBE68A600F65163 /* DataFrameMessageBody.swift */; };
@@ -1160,6 +1163,8 @@
 		C1EAD6E31C82BA87006DBA60 /* CRC16Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRC16Tests.swift; sourceTree = "<group>"; };
 		C1EAD6EA1C8409A9006DBA60 /* RileyLink-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RileyLink-Bridging-Header.h"; sourceTree = "<group>"; };
 		C1EB955C1C887FE5002517DF /* HistoryPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPage.swift; sourceTree = "<group>"; };
+		C1EEC605211611A10091E08E /* OmnipodPumpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnipodPumpManager.swift; sourceTree = "<group>"; };
+		C1EEC60721161A580091E08E /* OmnipodPumpManagerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnipodPumpManagerState.swift; sourceTree = "<group>"; };
 		C1EF58861B3F93FE001C8C80 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C1EF58871B3F93FE001C8C80 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		C1F0004B1EBE68A600F65163 /* DataFrameMessageBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFrameMessageBody.swift; sourceTree = "<group>"; };
@@ -1988,6 +1993,7 @@
 		C1E8D3742114C8460050B4A9 /* OmniKit */ = {
 			isa = PBXGroup;
 			children = (
+				C1EEC604211611560091E08E /* PumpManager */,
 				C1E8D3B92114C88E0050B4A9 /* Extensions */,
 				C1E8D3A82114C88E0050B4A9 /* MessageBlocks */,
 				C1E8D3962114C8690050B4A9 /* BasalDeliveryTable.swift */,
@@ -2109,6 +2115,15 @@
 				C1EAD6C41C826B92006DBA60 /* UnknownMessageBody.swift */,
 			);
 			path = Messages;
+			sourceTree = "<group>";
+		};
+		C1EEC604211611560091E08E /* PumpManager */ = {
+			isa = PBXGroup;
+			children = (
+				C1EEC605211611A10091E08E /* OmnipodPumpManager.swift */,
+				C1EEC60721161A580091E08E /* OmnipodPumpManagerState.swift */,
+			);
+			path = PumpManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3220,6 +3235,7 @@
 				C1E8D3C92114C88E0050B4A9 /* SetInsulinScheduleCommand.swift in Sources */,
 				C1E8D3BD2114C88E0050B4A9 /* TempBasalExtraCommand.swift in Sources */,
 				C1E8D3A12114C86A0050B4A9 /* BasalSchedule.swift in Sources */,
+				C1EEC60921161E590091E08E /* OSLog.swift in Sources */,
 				C1E8D3C32114C88E0050B4A9 /* GetStatusCommand.swift in Sources */,
 				C1E8D3C62114C88E0050B4A9 /* SetPodTimeCommand.swift in Sources */,
 				C1E8D3BE2114C88E0050B4A9 /* DeactivatePodCommand.swift in Sources */,
@@ -3234,6 +3250,8 @@
 				C1E8D3CB2114C88E0050B4A9 /* Notification.swift in Sources */,
 				C1E8D3DB2114C8D80050B4A9 /* TimeInterval.swift in Sources */,
 				C1E8D3C02114C88E0050B4A9 /* PlaceholderMessageBlock.swift in Sources */,
+				C1EEC606211611A10091E08E /* OmnipodPumpManager.swift in Sources */,
+				C1EEC60821161A580091E08E /* OmnipodPumpManagerState.swift in Sources */,
 				C1E8D3BB2114C88E0050B4A9 /* ConfigResponse.swift in Sources */,
 				C1E8D3C72114C88E0050B4A9 /* AssignAddressCommand.swift in Sources */,
 				C1E8D3A72114C86A0050B4A9 /* Packet.swift in Sources */,
@@ -4415,7 +4433,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OmniKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rileylink.OmniKit;
@@ -4453,7 +4470,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OmniKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rileylink.OmniKit;

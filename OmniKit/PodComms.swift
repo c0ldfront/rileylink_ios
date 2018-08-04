@@ -25,10 +25,6 @@ public class PodComms {
     
     private var configuredDevices: Set<RileyLinkDevice> = Set()
     
-    public var podIsActive: Bool {
-        return podState != nil
-    }
-    
     public weak var delegate: PodCommsDelegate?
 
     private let sessionQueue = DispatchQueue(label: "com.rileylink.OmniKit.PodComms", qos: .utility)

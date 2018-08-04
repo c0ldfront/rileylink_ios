@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PodState: RawRepresentable {
+public struct PodState: RawRepresentable, Equatable {
     public typealias RawValue = [String: Any]
 
     public let address: UInt32
@@ -90,7 +90,7 @@ public struct PodState: RawRepresentable {
     }
 }
 
-fileprivate struct NonceState: RawRepresentable {
+fileprivate struct NonceState: RawRepresentable, Equatable {
     public typealias RawValue = [String: Any]
     
     var table: [UInt32]
