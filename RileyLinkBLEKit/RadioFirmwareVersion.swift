@@ -83,7 +83,10 @@ extension RadioFirmwareVersion {
     var supportsRileyLinkStatistics: Bool {
         return atLeastV2_2
     }
-
+    
+    var supportsCustomPreamble: Bool {
+        return atLeastV2
+    }
 
 }
 

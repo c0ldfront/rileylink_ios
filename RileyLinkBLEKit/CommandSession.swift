@@ -157,9 +157,10 @@ public struct CommandSession {
     ///   - repeatCount: The number of times to repeat the message before listening begins
     ///   - timeout: The length of time to listen for a response before timing out
     ///   - retryCount: The number of times to repeat the send & listen sequence
+    ///   - preambleExtension: If set, the length of time to continuously send preamble data. Overrides the register based preamble settings.
     /// - Returns: The packet reply
     /// - Throws: RileyLinkDeviceError
-    public func sendAndListen(_ data: Data, repeatCount: Int, timeout: TimeInterval, retryCount: Int) throws -> RFPacket? {
+    public func sendAndListen(_ data: Data, repeatCount: Int, timeout: TimeInterval, retryCount: Int, preambleExtension: TimeInterval?) throws -> RFPacket {
         let delayBetweenPackets: TimeInterval = 0
 
         let command = SendAndListen(
@@ -170,7 +171,7 @@ public struct CommandSession {
             listenChannel: 0,
             timeoutMS: UInt32(clamping: Int(timeout.milliseconds)),
             retryCount: UInt8(clamping: retryCount),
-            preambleExtensionMS: 0,
+            preambleExtensionMS: UInt16(clamping: Int(preambleExtension?.milliseconds ?? 0)),
             firmwareVersion: firmwareVersion
         )
 
@@ -185,6 +186,20 @@ public struct CommandSession {
 
         return try writeCommand(command, timeout: totalTimeout)
     }
+    
+    /// Sends data to the pump, listening for a reply
+    ///
+    /// - Parameters:
+    ///   - data: The data to send
+    ///   - repeatCount: The number of times to repeat the message before listening begins
+    ///   - timeout: The length of time to listen for a response before timing out
+    ///   - retryCount: The number of times to repeat the send & listen sequence if no response is heard
+    /// - Returns: The packet reply
+    /// - Throws: RileyLinkDeviceError
+    public func sendAndListen(_ data: Data, repeatCount: Int, timeout: TimeInterval, retryCount: Int) throws -> RFPacket {
+        return try sendAndListen(data, repeatCount: repeatCount, timeout: timeout, retryCount: retryCount, preambleExtension: nil)
+    }
+
 
     /// - Throws: RileyLinkDeviceError
     public func listen(onChannel channel: Int, timeout: TimeInterval) throws -> RFPacket? {
@@ -213,7 +228,7 @@ public struct CommandSession {
     /// - Throws: RileyLinkDeviceError
     public func setSoftwareEncoding(_ swEncodingType: SoftwareEncodingType) throws {
         guard firmwareVersion.supportsSoftwareEncoding else {
-            throw RileyLinkDeviceError.unsupportedCommand(.setSWEncoding)
+            throw RileyLinkDeviceError.unsupportedCommand(String(describing: RileyLinkCommand.setSWEncoding))
         }
         
         let command = SetSoftwareEncoding(swEncodingType)
@@ -236,7 +251,7 @@ public struct CommandSession {
     
     public func getRileyLinkStatistics() throws -> RileyLinkStatistics {
         guard firmwareVersion.supportsRileyLinkStatistics else {
-            throw RileyLinkDeviceError.unsupportedCommand(.getStatistics)
+            throw RileyLinkDeviceError.unsupportedCommand(String(describing: RileyLinkCommand.getStatistics))
         }
         
         let command = GetStatistics()
@@ -244,4 +259,15 @@ public struct CommandSession {
         
         return response.statistics
     }
+    
+    public func setPreamble(_ preambleValue: UInt16) throws {
+        guard firmwareVersion.supportsCustomPreamble else {
+            throw RileyLinkDeviceError.unsupportedCommand(String(describing: RileyLinkCommand.setPreamble))
+        }
+        
+        let command = SetPreamble(preambleValue)
+        
+        _ = try writeCommand(command, timeout: 0)
+    }
+
 }

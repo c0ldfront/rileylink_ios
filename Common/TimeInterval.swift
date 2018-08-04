@@ -29,6 +29,10 @@ extension TimeInterval {
     static func milliseconds(_ milliseconds: Double) -> TimeInterval {
         return self.init(milliseconds / 1000)
     }
+    
+    static func hundredthsOfMilliseconds(_ hundredthsOfMilliseconds: Double) -> TimeInterval {
+        return self.init(hundredthsOfMilliseconds / 100000)
+    }
 
     init(minutes: Double) {
         self.init(minutes * 60)
@@ -58,4 +62,8 @@ extension TimeInterval {
         return minutes / 60.0
     }
     
+    var hundredthsOfMilliseconds: Double {
+        return self * 100000
+    }
+
 }

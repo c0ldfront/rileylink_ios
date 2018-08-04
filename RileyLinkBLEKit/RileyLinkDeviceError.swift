@@ -6,18 +6,18 @@
 //
 
 
-enum RileyLinkDeviceError: Error {
-    case peripheralManagerError(PeripheralManagerError)
+public enum RileyLinkDeviceError: Error {
+    case peripheralManagerError(LocalizedError)
     case invalidInput(String)
     case writeSizeLimitExceeded(maxLength: Int)
     case invalidResponse(Data)
     case responseTimeout
-    case unsupportedCommand(RileyLinkCommand)
+    case unsupportedCommand(String)
 }
 
 
 extension RileyLinkDeviceError: LocalizedError {
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .peripheralManagerError(let error):
             return error.errorDescription
@@ -30,11 +30,11 @@ extension RileyLinkDeviceError: LocalizedError {
         case .responseTimeout:
             return NSLocalizedString("Pump did not respond in time", comment: "Response timeout error description")
         case .unsupportedCommand(let command):
-            return String(format: NSLocalizedString("RileyLink firmware does not support the %@ command", comment: "Unsupported command error description"), String(describing: command))
+            return String(format: NSLocalizedString("RileyLink firmware does not support the %@ command", comment: "Unsupported command error description"), command)
         }
     }
 
-    var failureReason: String? {
+    public var failureReason: String? {
         switch self {
         case .peripheralManagerError(let error):
             return error.failureReason
@@ -43,7 +43,7 @@ extension RileyLinkDeviceError: LocalizedError {
         }
     }
 
-    var recoverySuggestion: String? {
+    public var recoverySuggestion: String? {
         switch self {
         case .peripheralManagerError(let error):
             return error.recoverySuggestion

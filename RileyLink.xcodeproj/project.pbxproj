@@ -423,6 +423,46 @@
 		C1D00E9D1E8986A400B733B7 /* PumpSuspendTreatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D00E9C1E8986A400B733B7 /* PumpSuspendTreatment.swift */; };
 		C1D00EA11E8986F900B733B7 /* PumpResumeTreatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D00EA01E8986F900B733B7 /* PumpResumeTreatment.swift */; };
 		C1E5BEAD1D5E26F200BD4390 /* RileyLinkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E5BEAC1D5E26F200BD4390 /* RileyLinkStatus.swift */; };
+		C1E8D37C2114C8460050B4A9 /* OmniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E8D3732114C8460050B4A9 /* OmniKit.framework */; };
+		C1E8D3852114C8470050B4A9 /* OmniKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C1E8D3752114C8460050B4A9 /* OmniKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1E8D3882114C8470050B4A9 /* OmniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E8D3732114C8460050B4A9 /* OmniKit.framework */; };
+		C1E8D3892114C8470050B4A9 /* OmniKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1E8D3732114C8460050B4A9 /* OmniKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1E8D39C2114C8690050B4A9 /* PodComms.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3902114C8680050B4A9 /* PodComms.swift */; };
+		C1E8D39D2114C86A0050B4A9 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3912114C8680050B4A9 /* Pod.swift */; };
+		C1E8D39E2114C86A0050B4A9 /* CRC16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3922114C8680050B4A9 /* CRC16.swift */; };
+		C1E8D39F2114C86A0050B4A9 /* PodState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3932114C8680050B4A9 /* PodState.swift */; };
+		C1E8D3A02114C86A0050B4A9 /* PodCommsSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3942114C8690050B4A9 /* PodCommsSession.swift */; };
+		C1E8D3A12114C86A0050B4A9 /* BasalSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3952114C8690050B4A9 /* BasalSchedule.swift */; };
+		C1E8D3A22114C86A0050B4A9 /* BasalDeliveryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3962114C8690050B4A9 /* BasalDeliveryTable.swift */; };
+		C1E8D3A32114C86A0050B4A9 /* CRC8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3972114C8690050B4A9 /* CRC8.swift */; };
+		C1E8D3A52114C86A0050B4A9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3992114C8690050B4A9 /* Message.swift */; };
+		C1E8D3A72114C86A0050B4A9 /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D39B2114C8690050B4A9 /* Packet.swift */; };
+		C1E8D3BB2114C88E0050B4A9 /* ConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3A92114C88E0050B4A9 /* ConfigResponse.swift */; };
+		C1E8D3BC2114C88E0050B4A9 /* StatusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3AA2114C88E0050B4A9 /* StatusError.swift */; };
+		C1E8D3BD2114C88E0050B4A9 /* TempBasalExtraCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3AB2114C88E0050B4A9 /* TempBasalExtraCommand.swift */; };
+		C1E8D3BE2114C88E0050B4A9 /* DeactivatePodCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3AC2114C88E0050B4A9 /* DeactivatePodCommand.swift */; };
+		C1E8D3BF2114C88E0050B4A9 /* MessageBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3AD2114C88E0050B4A9 /* MessageBlock.swift */; };
+		C1E8D3C02114C88E0050B4A9 /* PlaceholderMessageBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3AE2114C88E0050B4A9 /* PlaceholderMessageBlock.swift */; };
+		C1E8D3C12114C88E0050B4A9 /* BolusExtraCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3AF2114C88E0050B4A9 /* BolusExtraCommand.swift */; };
+		C1E8D3C22114C88E0050B4A9 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B02114C88E0050B4A9 /* StatusResponse.swift */; };
+		C1E8D3C32114C88E0050B4A9 /* GetStatusCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B12114C88E0050B4A9 /* GetStatusCommand.swift */; };
+		C1E8D3C42114C88E0050B4A9 /* BasalScheduleExtraCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B22114C88E0050B4A9 /* BasalScheduleExtraCommand.swift */; };
+		C1E8D3C52114C88E0050B4A9 /* CancelDeliveryCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B32114C88E0050B4A9 /* CancelDeliveryCommand.swift */; };
+		C1E8D3C62114C88E0050B4A9 /* SetPodTimeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B42114C88E0050B4A9 /* SetPodTimeCommand.swift */; };
+		C1E8D3C72114C88E0050B4A9 /* AssignAddressCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B52114C88E0050B4A9 /* AssignAddressCommand.swift */; };
+		C1E8D3C82114C88E0050B4A9 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B62114C88E0050B4A9 /* ErrorResponse.swift */; };
+		C1E8D3C92114C88E0050B4A9 /* SetInsulinScheduleCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B72114C88E0050B4A9 /* SetInsulinScheduleCommand.swift */; };
+		C1E8D3CA2114C88E0050B4A9 /* ConfigureAlertsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3B82114C88E0050B4A9 /* ConfigureAlertsCommand.swift */; };
+		C1E8D3CB2114C88E0050B4A9 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3BA2114C88E0050B4A9 /* Notification.swift */; };
+		C1E8D3D42114C89D0050B4A9 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3CC2114C89C0050B4A9 /* MessageTests.swift */; };
+		C1E8D3D52114C89D0050B4A9 /* PodStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3CD2114C89C0050B4A9 /* PodStateTests.swift */; };
+		C1E8D3D62114C89D0050B4A9 /* TempBasalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3CE2114C89C0050B4A9 /* TempBasalTests.swift */; };
+		C1E8D3D72114C89D0050B4A9 /* CRC8Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3CF2114C89D0050B4A9 /* CRC8Tests.swift */; };
+		C1E8D3D82114C89D0050B4A9 /* PacketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3D02114C89D0050B4A9 /* PacketTests.swift */; };
+		C1E8D3D92114C89D0050B4A9 /* BasalScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3D12114C89D0050B4A9 /* BasalScheduleTests.swift */; };
+		C1E8D3DA2114C89D0050B4A9 /* CRC16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E8D3D22114C89D0050B4A9 /* CRC16Tests.swift */; };
+		C1E8D3DB2114C8D80050B4A9 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBE4501EAD238C0073A0B5 /* TimeInterval.swift */; };
+		C1E8D3DC2114C9000050B4A9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6BA1C826B92006DBA60 /* Data.swift */; };
 		C1EAD6B31C826B6D006DBA60 /* MySentryAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6AE1C826B6D006DBA60 /* MySentryAlertType.swift */; };
 		C1EAD6B41C826B6D006DBA60 /* MessageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6AF1C826B6D006DBA60 /* MessageBody.swift */; };
 		C1EAD6B51C826B6D006DBA60 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAD6B01C826B6D006DBA60 /* MessageType.swift */; };
@@ -613,6 +653,34 @@
 			remoteGlobalIDString = C1B3830A1CD0665D00CE7782;
 			remoteInfo = NightscoutUploadKit;
 		};
+		C1E8D37D2114C8460050B4A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C12EA22F198B436800309FA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1E8D3722114C8460050B4A9;
+			remoteInfo = OmniKit;
+		};
+		C1E8D37F2114C8460050B4A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C12EA22F198B436800309FA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C12EA236198B436800309FA4;
+			remoteInfo = RileyLink;
+		};
+		C1E8D3862114C8470050B4A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C12EA22F198B436800309FA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1E8D3722114C8460050B4A9;
+			remoteInfo = OmniKit;
+		};
+		C1E8D3DD2114EF1D0050B4A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C12EA22F198B436800309FA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 431CE76E1F98564100255374;
+			remoteInfo = RileyLinkBLEKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -633,6 +701,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C1E8D3892114C8470050B4A9 /* OmniKit.framework in Embed Frameworks */,
 				43722FC41CB9F7640038B7F2 /* RileyLinkKit.framework in Embed Frameworks */,
 				43C246AA1D8A31540031F8D1 /* Crypto.framework in Embed Frameworks */,
 				C10D9BD71C8269D500378342 /* MinimedKit.framework in Embed Frameworks */,
@@ -1025,6 +1094,46 @@
 		C1E535E81991E36700C2AC49 /* NSData+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Conversion.h"; sourceTree = "<group>"; };
 		C1E535E91991E36700C2AC49 /* NSData+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Conversion.m"; sourceTree = "<group>"; };
 		C1E5BEAC1D5E26F200BD4390 /* RileyLinkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RileyLinkStatus.swift; sourceTree = "<group>"; };
+		C1E8D3732114C8460050B4A9 /* OmniKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OmniKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1E8D3752114C8460050B4A9 /* OmniKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmniKit.h; sourceTree = "<group>"; };
+		C1E8D3762114C8460050B4A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1E8D37B2114C8460050B4A9 /* OmniKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1E8D3842114C8470050B4A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1E8D3902114C8680050B4A9 /* PodComms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodComms.swift; sourceTree = "<group>"; };
+		C1E8D3912114C8680050B4A9 /* Pod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
+		C1E8D3922114C8680050B4A9 /* CRC16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRC16.swift; sourceTree = "<group>"; };
+		C1E8D3932114C8680050B4A9 /* PodState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodState.swift; sourceTree = "<group>"; };
+		C1E8D3942114C8690050B4A9 /* PodCommsSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCommsSession.swift; sourceTree = "<group>"; };
+		C1E8D3952114C8690050B4A9 /* BasalSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasalSchedule.swift; sourceTree = "<group>"; };
+		C1E8D3962114C8690050B4A9 /* BasalDeliveryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasalDeliveryTable.swift; sourceTree = "<group>"; };
+		C1E8D3972114C8690050B4A9 /* CRC8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRC8.swift; sourceTree = "<group>"; };
+		C1E8D3992114C8690050B4A9 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C1E8D39B2114C8690050B4A9 /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
+		C1E8D3A92114C88E0050B4A9 /* ConfigResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigResponse.swift; sourceTree = "<group>"; };
+		C1E8D3AA2114C88E0050B4A9 /* StatusError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusError.swift; sourceTree = "<group>"; };
+		C1E8D3AB2114C88E0050B4A9 /* TempBasalExtraCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempBasalExtraCommand.swift; sourceTree = "<group>"; };
+		C1E8D3AC2114C88E0050B4A9 /* DeactivatePodCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeactivatePodCommand.swift; sourceTree = "<group>"; };
+		C1E8D3AD2114C88E0050B4A9 /* MessageBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBlock.swift; sourceTree = "<group>"; };
+		C1E8D3AE2114C88E0050B4A9 /* PlaceholderMessageBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderMessageBlock.swift; sourceTree = "<group>"; };
+		C1E8D3AF2114C88E0050B4A9 /* BolusExtraCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BolusExtraCommand.swift; sourceTree = "<group>"; };
+		C1E8D3B02114C88E0050B4A9 /* StatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
+		C1E8D3B12114C88E0050B4A9 /* GetStatusCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStatusCommand.swift; sourceTree = "<group>"; };
+		C1E8D3B22114C88E0050B4A9 /* BasalScheduleExtraCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasalScheduleExtraCommand.swift; sourceTree = "<group>"; };
+		C1E8D3B32114C88E0050B4A9 /* CancelDeliveryCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelDeliveryCommand.swift; sourceTree = "<group>"; };
+		C1E8D3B42114C88E0050B4A9 /* SetPodTimeCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPodTimeCommand.swift; sourceTree = "<group>"; };
+		C1E8D3B52114C88E0050B4A9 /* AssignAddressCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignAddressCommand.swift; sourceTree = "<group>"; };
+		C1E8D3B62114C88E0050B4A9 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		C1E8D3B72114C88E0050B4A9 /* SetInsulinScheduleCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetInsulinScheduleCommand.swift; sourceTree = "<group>"; };
+		C1E8D3B82114C88E0050B4A9 /* ConfigureAlertsCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureAlertsCommand.swift; sourceTree = "<group>"; };
+		C1E8D3BA2114C88E0050B4A9 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		C1E8D3CC2114C89C0050B4A9 /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
+		C1E8D3CD2114C89C0050B4A9 /* PodStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodStateTests.swift; sourceTree = "<group>"; };
+		C1E8D3CE2114C89C0050B4A9 /* TempBasalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempBasalTests.swift; sourceTree = "<group>"; };
+		C1E8D3CF2114C89D0050B4A9 /* CRC8Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRC8Tests.swift; sourceTree = "<group>"; };
+		C1E8D3D02114C89D0050B4A9 /* PacketTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketTests.swift; sourceTree = "<group>"; };
+		C1E8D3D12114C89D0050B4A9 /* BasalScheduleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasalScheduleTests.swift; sourceTree = "<group>"; };
+		C1E8D3D22114C89D0050B4A9 /* CRC16Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRC16Tests.swift; sourceTree = "<group>"; };
+		C1E8D3D32114C89D0050B4A9 /* OmniKitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OmniKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		C1EAD6AE1C826B6D006DBA60 /* MySentryAlertType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySentryAlertType.swift; sourceTree = "<group>"; };
 		C1EAD6AF1C826B6D006DBA60 /* MessageBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBody.swift; sourceTree = "<group>"; };
 		C1EAD6B01C826B6D006DBA60 /* MessageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MessageType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1157,6 +1266,7 @@
 				431CE7841F98564200255374 /* RileyLinkBLEKit.framework in Frameworks */,
 				C10D9BD61C8269D500378342 /* MinimedKit.framework in Frameworks */,
 				4352A72C20DEC9B700CAC200 /* MinimedKitUI.framework in Frameworks */,
+				C1E8D3882114C8470050B4A9 /* OmniKit.framework in Frameworks */,
 				4352A74720DED4AF00CAC200 /* LoopKit.framework in Frameworks */,
 				4352A74620DED4AB00CAC200 /* LoopKitUI.framework in Frameworks */,
 			);
@@ -1190,6 +1300,21 @@
 				43C9071B1D863772002BAD29 /* MinimedKit.framework in Frameworks */,
 				C1B383151CD0665D00CE7782 /* NightscoutUploadKit.framework in Frameworks */,
 				4352A74B20DED87F00CAC200 /* LoopKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E8D36F2114C8460050B4A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E8D3782114C8460050B4A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1E8D37C2114C8460050B4A9 /* OmniKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1589,6 +1714,8 @@
 				431CE77D1F98564200255374 /* RileyLinkBLEKitTests */,
 				43D5E78F1FAF7BFB004ACDB7 /* RileyLinkKitUI */,
 				4352A72620DEC9B700CAC200 /* MinimedKitUI */,
+				C1E8D3742114C8460050B4A9 /* OmniKit */,
+				C1E8D3812114C8460050B4A9 /* OmniKitTests */,
 				C12EA239198B436800309FA4 /* Frameworks */,
 				C12EA238198B436800309FA4 /* Products */,
 			);
@@ -1610,6 +1737,8 @@
 				431CE7771F98564200255374 /* RileyLinkBLEKitTests.xctest */,
 				43D5E78E1FAF7BFB004ACDB7 /* RileyLinkKitUI.framework */,
 				4352A72520DEC9B700CAC200 /* MinimedKitUI.framework */,
+				C1E8D3732114C8460050B4A9 /* OmniKit.framework */,
+				C1E8D37B2114C8460050B4A9 /* OmniKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1855,6 +1984,74 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		C1E8D3742114C8460050B4A9 /* OmniKit */ = {
+			isa = PBXGroup;
+			children = (
+				C1E8D3B92114C88E0050B4A9 /* Extensions */,
+				C1E8D3A82114C88E0050B4A9 /* MessageBlocks */,
+				C1E8D3962114C8690050B4A9 /* BasalDeliveryTable.swift */,
+				C1E8D3952114C8690050B4A9 /* BasalSchedule.swift */,
+				C1E8D3972114C8690050B4A9 /* CRC8.swift */,
+				C1E8D3922114C8680050B4A9 /* CRC16.swift */,
+				C1E8D3992114C8690050B4A9 /* Message.swift */,
+				C1E8D39B2114C8690050B4A9 /* Packet.swift */,
+				C1E8D3912114C8680050B4A9 /* Pod.swift */,
+				C1E8D3902114C8680050B4A9 /* PodComms.swift */,
+				C1E8D3942114C8690050B4A9 /* PodCommsSession.swift */,
+				C1E8D3932114C8680050B4A9 /* PodState.swift */,
+				C1E8D3752114C8460050B4A9 /* OmniKit.h */,
+				C1E8D3762114C8460050B4A9 /* Info.plist */,
+			);
+			path = OmniKit;
+			sourceTree = "<group>";
+		};
+		C1E8D3812114C8460050B4A9 /* OmniKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1E8D3D12114C89D0050B4A9 /* BasalScheduleTests.swift */,
+				C1E8D3CF2114C89D0050B4A9 /* CRC8Tests.swift */,
+				C1E8D3D22114C89D0050B4A9 /* CRC16Tests.swift */,
+				C1E8D3CC2114C89C0050B4A9 /* MessageTests.swift */,
+				C1E8D3D32114C89D0050B4A9 /* OmniKitTests-Bridging-Header.h */,
+				C1E8D3D02114C89D0050B4A9 /* PacketTests.swift */,
+				C1E8D3CD2114C89C0050B4A9 /* PodStateTests.swift */,
+				C1E8D3CE2114C89C0050B4A9 /* TempBasalTests.swift */,
+				C1E8D3842114C8470050B4A9 /* Info.plist */,
+			);
+			path = OmniKitTests;
+			sourceTree = "<group>";
+		};
+		C1E8D3A82114C88E0050B4A9 /* MessageBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				C1E8D3A92114C88E0050B4A9 /* ConfigResponse.swift */,
+				C1E8D3AA2114C88E0050B4A9 /* StatusError.swift */,
+				C1E8D3AB2114C88E0050B4A9 /* TempBasalExtraCommand.swift */,
+				C1E8D3AC2114C88E0050B4A9 /* DeactivatePodCommand.swift */,
+				C1E8D3AD2114C88E0050B4A9 /* MessageBlock.swift */,
+				C1E8D3AE2114C88E0050B4A9 /* PlaceholderMessageBlock.swift */,
+				C1E8D3AF2114C88E0050B4A9 /* BolusExtraCommand.swift */,
+				C1E8D3B02114C88E0050B4A9 /* StatusResponse.swift */,
+				C1E8D3B12114C88E0050B4A9 /* GetStatusCommand.swift */,
+				C1E8D3B22114C88E0050B4A9 /* BasalScheduleExtraCommand.swift */,
+				C1E8D3B32114C88E0050B4A9 /* CancelDeliveryCommand.swift */,
+				C1E8D3B42114C88E0050B4A9 /* SetPodTimeCommand.swift */,
+				C1E8D3B52114C88E0050B4A9 /* AssignAddressCommand.swift */,
+				C1E8D3B62114C88E0050B4A9 /* ErrorResponse.swift */,
+				C1E8D3B72114C88E0050B4A9 /* SetInsulinScheduleCommand.swift */,
+				C1E8D3B82114C88E0050B4A9 /* ConfigureAlertsCommand.swift */,
+			);
+			path = MessageBlocks;
+			sourceTree = "<group>";
+		};
+		C1E8D3B92114C88E0050B4A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1E8D3BA2114C88E0050B4A9 /* Notification.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C1EAD6B81C826B92006DBA60 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1969,6 +2166,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1B3830E1CD0665D00CE7782 /* NightscoutUploadKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E8D3702114C8460050B4A9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1E8D3852114C8470050B4A9 /* OmniKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2165,6 +2370,7 @@
 				431CE7831F98564200255374 /* PBXTargetDependency */,
 				43D5E7941FAF7BFB004ACDB7 /* PBXTargetDependency */,
 				4352A72B20DEC9B700CAC200 /* PBXTargetDependency */,
+				C1E8D3872114C8470050B4A9 /* PBXTargetDependency */,
 			);
 			name = RileyLink;
 			productName = RileyLink;
@@ -2228,13 +2434,51 @@
 			productReference = C1B383141CD0665D00CE7782 /* NightscoutUploadKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C1E8D3722114C8460050B4A9 /* OmniKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1E8D38E2114C8470050B4A9 /* Build configuration list for PBXNativeTarget "OmniKit" */;
+			buildPhases = (
+				C1E8D36E2114C8460050B4A9 /* Sources */,
+				C1E8D36F2114C8460050B4A9 /* Frameworks */,
+				C1E8D3702114C8460050B4A9 /* Headers */,
+				C1E8D3712114C8460050B4A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1E8D3DE2114EF1D0050B4A9 /* PBXTargetDependency */,
+			);
+			name = OmniKit;
+			productName = OmniKit;
+			productReference = C1E8D3732114C8460050B4A9 /* OmniKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1E8D37A2114C8460050B4A9 /* OmniKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1E8D38F2114C8470050B4A9 /* Build configuration list for PBXNativeTarget "OmniKitTests" */;
+			buildPhases = (
+				C1E8D3772114C8460050B4A9 /* Sources */,
+				C1E8D3782114C8460050B4A9 /* Frameworks */,
+				C1E8D3792114C8460050B4A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1E8D37E2114C8460050B4A9 /* PBXTargetDependency */,
+				C1E8D3802114C8460050B4A9 /* PBXTargetDependency */,
+			);
+			name = OmniKitTests;
+			productName = OmniKitTests;
+			productReference = C1E8D37B2114C8460050B4A9 /* OmniKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C12EA22F198B436800309FA4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Pete Schwamb";
 				TargetAttributes = {
@@ -2299,6 +2543,17 @@
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0900;
 					};
+					C1E8D3722114C8460050B4A9 = {
+						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
+						ProvisioningStyle = Automatic;
+					};
+					C1E8D37A2114C8460050B4A9 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = UY678SP37Q;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C12EA236198B436800309FA4;
+					};
 				};
 			};
 			buildConfigurationList = C12EA232198B436800309FA4 /* Build configuration list for PBXProject "RileyLink" */;
@@ -2330,6 +2585,8 @@
 				43D5E78D1FAF7BFB004ACDB7 /* RileyLinkKitUI */,
 				4352A72420DEC9B700CAC200 /* MinimedKitUI */,
 				43FB610120DDEF26002B996B /* Cartfile */,
+				C1E8D3722114C8460050B4A9 /* OmniKit */,
+				C1E8D37A2114C8460050B4A9 /* OmniKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2439,6 +2696,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C1B383121CD0665D00CE7782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E8D3712114C8460050B4A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E8D3792114C8460050B4A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2934,6 +3205,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1E8D36E2114C8460050B4A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1E8D3A22114C86A0050B4A9 /* BasalDeliveryTable.swift in Sources */,
+				C1E8D39C2114C8690050B4A9 /* PodComms.swift in Sources */,
+				C1E8D3BC2114C88E0050B4A9 /* StatusError.swift in Sources */,
+				C1E8D3CA2114C88E0050B4A9 /* ConfigureAlertsCommand.swift in Sources */,
+				C1E8D3A02114C86A0050B4A9 /* PodCommsSession.swift in Sources */,
+				C1E8D3C52114C88E0050B4A9 /* CancelDeliveryCommand.swift in Sources */,
+				C1E8D3A52114C86A0050B4A9 /* Message.swift in Sources */,
+				C1E8D3C92114C88E0050B4A9 /* SetInsulinScheduleCommand.swift in Sources */,
+				C1E8D3BD2114C88E0050B4A9 /* TempBasalExtraCommand.swift in Sources */,
+				C1E8D3A12114C86A0050B4A9 /* BasalSchedule.swift in Sources */,
+				C1E8D3C32114C88E0050B4A9 /* GetStatusCommand.swift in Sources */,
+				C1E8D3C62114C88E0050B4A9 /* SetPodTimeCommand.swift in Sources */,
+				C1E8D3BE2114C88E0050B4A9 /* DeactivatePodCommand.swift in Sources */,
+				C1E8D39F2114C86A0050B4A9 /* PodState.swift in Sources */,
+				C1E8D3C12114C88E0050B4A9 /* BolusExtraCommand.swift in Sources */,
+				C1E8D3A32114C86A0050B4A9 /* CRC8.swift in Sources */,
+				C1E8D3BF2114C88E0050B4A9 /* MessageBlock.swift in Sources */,
+				C1E8D3C82114C88E0050B4A9 /* ErrorResponse.swift in Sources */,
+				C1E8D3DC2114C9000050B4A9 /* Data.swift in Sources */,
+				C1E8D3C42114C88E0050B4A9 /* BasalScheduleExtraCommand.swift in Sources */,
+				C1E8D3C22114C88E0050B4A9 /* StatusResponse.swift in Sources */,
+				C1E8D3CB2114C88E0050B4A9 /* Notification.swift in Sources */,
+				C1E8D3DB2114C8D80050B4A9 /* TimeInterval.swift in Sources */,
+				C1E8D3C02114C88E0050B4A9 /* PlaceholderMessageBlock.swift in Sources */,
+				C1E8D3BB2114C88E0050B4A9 /* ConfigResponse.swift in Sources */,
+				C1E8D3C72114C88E0050B4A9 /* AssignAddressCommand.swift in Sources */,
+				C1E8D3A72114C86A0050B4A9 /* Packet.swift in Sources */,
+				C1E8D39E2114C86A0050B4A9 /* CRC16.swift in Sources */,
+				C1E8D39D2114C86A0050B4A9 /* Pod.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E8D3772114C8460050B4A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1E8D3D92114C89D0050B4A9 /* BasalScheduleTests.swift in Sources */,
+				C1E8D3D42114C89D0050B4A9 /* MessageTests.swift in Sources */,
+				C1E8D3D52114C89D0050B4A9 /* PodStateTests.swift in Sources */,
+				C1E8D3D82114C89D0050B4A9 /* PacketTests.swift in Sources */,
+				C1E8D3DA2114C89D0050B4A9 /* CRC16Tests.swift in Sources */,
+				C1E8D3D72114C89D0050B4A9 /* CRC8Tests.swift in Sources */,
+				C1E8D3D62114C89D0050B4A9 /* TempBasalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -3046,6 +3367,26 @@
 			isa = PBXTargetDependency;
 			target = C1B3830A1CD0665D00CE7782 /* NightscoutUploadKit */;
 			targetProxy = C1B3831E1CD0665D00CE7782 /* PBXContainerItemProxy */;
+		};
+		C1E8D37E2114C8460050B4A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1E8D3722114C8460050B4A9 /* OmniKit */;
+			targetProxy = C1E8D37D2114C8460050B4A9 /* PBXContainerItemProxy */;
+		};
+		C1E8D3802114C8460050B4A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C12EA236198B436800309FA4 /* RileyLink */;
+			targetProxy = C1E8D37F2114C8460050B4A9 /* PBXContainerItemProxy */;
+		};
+		C1E8D3872114C8470050B4A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1E8D3722114C8460050B4A9 /* OmniKit */;
+			targetProxy = C1E8D3862114C8470050B4A9 /* PBXContainerItemProxy */;
+		};
+		C1E8D3DE2114EF1D0050B4A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 431CE76E1F98564100255374 /* RileyLinkBLEKit */;
+			targetProxy = C1E8D3DD2114EF1D0050B4A9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -4049,6 +4390,136 @@
 			};
 			name = Release;
 		};
+		C1E8D38A2114C8470050B4A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OmniKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rileylink.OmniKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C1E8D38B2114C8470050B4A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OmniKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rileylink.OmniKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C1E8D38C2114C8470050B4A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UY678SP37Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OmniKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rileylink.OmniKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RileyLink.app/RileyLink";
+			};
+			name = Debug;
+		};
+		C1E8D38D2114C8470050B4A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UY678SP37Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OmniKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rileylink.OmniKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RileyLink.app/RileyLink";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4183,6 +4654,24 @@
 			buildConfigurations = (
 				C1B383261CD0665D00CE7782 /* Debug */,
 				C1B383271CD0665D00CE7782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1E8D38E2114C8470050B4A9 /* Build configuration list for PBXNativeTarget "OmniKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1E8D38A2114C8470050B4A9 /* Debug */,
+				C1E8D38B2114C8470050B4A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1E8D38F2114C8470050B4A9 /* Build configuration list for PBXNativeTarget "OmniKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1E8D38C2114C8470050B4A9 /* Debug */,
+				C1E8D38D2114C8470050B4A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
