@@ -493,6 +493,15 @@
 		C1EEC60C21164A4E0091E08E /* RileyLinkBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431CE76F1F98564100255374 /* RileyLinkBLEKit.framework */; };
 		C1EEC60D21164A4E0091E08E /* RileyLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43722FAE1CB9F7630038B7F2 /* RileyLinkKit.framework */; };
 		C1EEC60E21164A760091E08E /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FB610B20DDF55F002B996B /* LoopKit.framework */; };
+		C1EEC62621164C5F0091E08E /* OmniKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = C1EEC61621164C5F0091E08E /* OmniKitUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1EEC62921164C5F0091E08E /* OmniKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EEC61421164C5E0091E08E /* OmniKitUI.framework */; };
+		C1EEC62A21164C5F0091E08E /* OmniKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1EEC61421164C5E0091E08E /* OmniKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1EEC63321164D800091E08E /* OmniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E8D3732114C8460050B4A9 /* OmniKit.framework */; };
+		C1EEC63421164D800091E08E /* RileyLinkKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D5E78E1FAF7BFB004ACDB7 /* RileyLinkKitUI.framework */; };
+		C1EEC63521164DA60091E08E /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FB610A20DDF55E002B996B /* LoopKitUI.framework */; };
+		C1EEC63621164DC90091E08E /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FB610B20DDF55F002B996B /* LoopKit.framework */; };
+		C1EEC63A21164EC10091E08E /* OmnipodPairingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EEC63821164EC00091E08E /* OmnipodPairingViewController.xib */; };
+		C1EEC63B21164EC10091E08E /* OmnipodPairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EEC63921164EC00091E08E /* OmnipodPairingViewController.swift */; };
 		C1EF58881B3F93FE001C8C80 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EF58871B3F93FE001C8C80 /* Config.m */; };
 		C1F000481EBE352900F65163 /* RileyLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43722FAE1CB9F7630038B7F2 /* RileyLinkKit.framework */; };
 		C1F0004C1EBE68A600F65163 /* DataFrameMessageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F0004B1EBE68A600F65163 /* DataFrameMessageBody.swift */; };
@@ -695,6 +704,20 @@
 			remoteGlobalIDString = 43FB610120DDEF26002B996B;
 			remoteInfo = Cartfile;
 		};
+		C1EEC62721164C5F0091E08E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C12EA22F198B436800309FA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1EEC61321164C5E0091E08E;
+			remoteInfo = OmniKitUI;
+		};
+		C1EEC63121164D6B0091E08E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C12EA22F198B436800309FA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43FB610120DDEF26002B996B;
+			remoteInfo = Cartfile;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -720,6 +743,7 @@
 				43C246AA1D8A31540031F8D1 /* Crypto.framework in Embed Frameworks */,
 				C10D9BD71C8269D500378342 /* MinimedKit.framework in Embed Frameworks */,
 				43D5E7961FAF7BFB004ACDB7 /* RileyLinkKitUI.framework in Embed Frameworks */,
+				C1EEC62A21164C5F0091E08E /* OmniKitUI.framework in Embed Frameworks */,
 				C1B383211CD0665D00CE7782 /* NightscoutUploadKit.framework in Embed Frameworks */,
 				4352A72D20DEC9B700CAC200 /* MinimedKitUI.framework in Embed Frameworks */,
 				431CE7851F98564200255374 /* RileyLinkBLEKit.framework in Embed Frameworks */,
@@ -1175,6 +1199,11 @@
 		C1EB955C1C887FE5002517DF /* HistoryPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPage.swift; sourceTree = "<group>"; };
 		C1EEC605211611A10091E08E /* OmnipodPumpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnipodPumpManager.swift; sourceTree = "<group>"; };
 		C1EEC60721161A580091E08E /* OmnipodPumpManagerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnipodPumpManagerState.swift; sourceTree = "<group>"; };
+		C1EEC61421164C5E0091E08E /* OmniKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OmniKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1EEC61621164C5F0091E08E /* OmniKitUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmniKitUI.h; sourceTree = "<group>"; };
+		C1EEC61721164C5F0091E08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1EEC63821164EC00091E08E /* OmnipodPairingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OmnipodPairingViewController.xib; sourceTree = "<group>"; };
+		C1EEC63921164EC00091E08E /* OmnipodPairingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnipodPairingViewController.swift; sourceTree = "<group>"; };
 		C1EF58861B3F93FE001C8C80 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C1EF58871B3F93FE001C8C80 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		C1F0004B1EBE68A600F65163 /* DataFrameMessageBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFrameMessageBody.swift; sourceTree = "<group>"; };
@@ -1272,6 +1301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EEC62921164C5F0091E08E /* OmniKitUI.framework in Frameworks */,
 				43C246A91D8A31540031F8D1 /* Crypto.framework in Frameworks */,
 				C1B383201CD0665D00CE7782 /* NightscoutUploadKit.framework in Frameworks */,
 				C12EA23D198B436800309FA4 /* CoreGraphics.framework in Frameworks */,
@@ -1334,6 +1364,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1E8D37C2114C8460050B4A9 /* OmniKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1EEC61021164C5E0091E08E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1EEC63321164D800091E08E /* OmniKit.framework in Frameworks */,
+				C1EEC63421164D800091E08E /* RileyLinkKitUI.framework in Frameworks */,
+				C1EEC63521164DA60091E08E /* LoopKitUI.framework in Frameworks */,
+				C1EEC63621164DC90091E08E /* LoopKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,18 +1764,19 @@
 				C12EA259198B436900309FA4 /* RileyLinkTests */,
 				C10D9BC21C8269D500378342 /* MinimedKit */,
 				C10D9BD01C8269D500378342 /* MinimedKitTests */,
+				4352A72620DEC9B700CAC200 /* MinimedKitUI */,
 				43722FAF1CB9F7630038B7F2 /* RileyLinkKit */,
 				43722FBD1CB9F7640038B7F2 /* RileyLinkKitTests */,
+				43D5E78F1FAF7BFB004ACDB7 /* RileyLinkKitUI */,
 				C1B3830C1CD0665D00CE7782 /* NightscoutUploadKit */,
 				C1B3831A1CD0665D00CE7782 /* NightscoutUploadKitTests */,
 				43EBE44F1EAD234F0073A0B5 /* Common */,
 				43C246941D8918AE0031F8D1 /* Crypto */,
 				431CE7701F98564100255374 /* RileyLinkBLEKit */,
 				431CE77D1F98564200255374 /* RileyLinkBLEKitTests */,
-				43D5E78F1FAF7BFB004ACDB7 /* RileyLinkKitUI */,
-				4352A72620DEC9B700CAC200 /* MinimedKitUI */,
 				C1E8D3742114C8460050B4A9 /* OmniKit */,
 				C1E8D3812114C8460050B4A9 /* OmniKitTests */,
+				C1EEC61521164C5F0091E08E /* OmniKitUI */,
 				C12EA239198B436800309FA4 /* Frameworks */,
 				C12EA238198B436800309FA4 /* Products */,
 			);
@@ -1758,6 +1800,7 @@
 				4352A72520DEC9B700CAC200 /* MinimedKitUI.framework */,
 				C1E8D3732114C8460050B4A9 /* OmniKit.framework */,
 				C1E8D37B2114C8460050B4A9 /* OmniKitTests.xctest */,
+				C1EEC61421164C5E0091E08E /* OmniKitUI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2139,6 +2182,25 @@
 			path = PumpManager;
 			sourceTree = "<group>";
 		};
+		C1EEC61521164C5F0091E08E /* OmniKitUI */ = {
+			isa = PBXGroup;
+			children = (
+				C1EEC63721164EC00091E08E /* Pairing */,
+				C1EEC61621164C5F0091E08E /* OmniKitUI.h */,
+				C1EEC61721164C5F0091E08E /* Info.plist */,
+			);
+			path = OmniKitUI;
+			sourceTree = "<group>";
+		};
+		C1EEC63721164EC00091E08E /* Pairing */ = {
+			isa = PBXGroup;
+			children = (
+				C1EEC63821164EC00091E08E /* OmnipodPairingViewController.xib */,
+				C1EEC63921164EC00091E08E /* OmnipodPairingViewController.swift */,
+			);
+			path = Pairing;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -2203,6 +2265,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1E8D3852114C8470050B4A9 /* OmniKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1EEC61121164C5E0091E08E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1EEC62621164C5F0091E08E /* OmniKitUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2400,6 +2470,7 @@
 				43D5E7941FAF7BFB004ACDB7 /* PBXTargetDependency */,
 				4352A72B20DEC9B700CAC200 /* PBXTargetDependency */,
 				C1E8D3872114C8470050B4A9 /* PBXTargetDependency */,
+				C1EEC62821164C5F0091E08E /* PBXTargetDependency */,
 			);
 			name = RileyLink;
 			productName = RileyLink;
@@ -2502,6 +2573,25 @@
 			productReference = C1E8D37B2114C8460050B4A9 /* OmniKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C1EEC61321164C5E0091E08E /* OmniKitUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1EEC62F21164C5F0091E08E /* Build configuration list for PBXNativeTarget "OmniKitUI" */;
+			buildPhases = (
+				C1EEC60F21164C5E0091E08E /* Sources */,
+				C1EEC61021164C5E0091E08E /* Frameworks */,
+				C1EEC61121164C5E0091E08E /* Headers */,
+				C1EEC61221164C5E0091E08E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1EEC63221164D6B0091E08E /* PBXTargetDependency */,
+			);
+			name = OmniKitUI;
+			productName = OmniKitUI;
+			productReference = C1EEC61421164C5E0091E08E /* OmniKitUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2584,6 +2674,10 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = C12EA236198B436800309FA4;
 					};
+					C1EEC61321164C5E0091E08E = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = C12EA232198B436800309FA4 /* Build configuration list for PBXProject "RileyLink" */;
@@ -2605,18 +2699,19 @@
 				C12EA251198B436800309FA4 /* RileyLinkTests */,
 				C10D9BC01C8269D500378342 /* MinimedKit */,
 				C10D9BC91C8269D500378342 /* MinimedKitTests */,
+				4352A72420DEC9B700CAC200 /* MinimedKitUI */,
 				43722FAD1CB9F7630038B7F2 /* RileyLinkKit */,
 				43722FB61CB9F7640038B7F2 /* RileyLinkKitTests */,
+				43D5E78D1FAF7BFB004ACDB7 /* RileyLinkKitUI */,
 				C1B3830A1CD0665D00CE7782 /* NightscoutUploadKit */,
 				C1B383131CD0665D00CE7782 /* NightscoutUploadKitTests */,
 				43C246921D8918AE0031F8D1 /* Crypto */,
 				431CE76E1F98564100255374 /* RileyLinkBLEKit */,
 				431CE7761F98564200255374 /* RileyLinkBLEKitTests */,
-				43D5E78D1FAF7BFB004ACDB7 /* RileyLinkKitUI */,
-				4352A72420DEC9B700CAC200 /* MinimedKitUI */,
 				43FB610120DDEF26002B996B /* Cartfile */,
 				C1E8D3722114C8460050B4A9 /* OmniKit */,
 				C1E8D37A2114C8460050B4A9 /* OmniKitTests */,
+				C1EEC61321164C5E0091E08E /* OmniKitUI */,
 			);
 		};
 /* End PBXProject section */
@@ -2743,6 +2838,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1EEC61221164C5E0091E08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1EEC63A21164EC10091E08E /* OmnipodPairingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3289,6 +3392,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1EEC60F21164C5E0091E08E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1EEC63B21164EC10091E08E /* OmnipodPairingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -3426,6 +3537,16 @@
 			isa = PBXTargetDependency;
 			target = 43FB610120DDEF26002B996B /* Cartfile */;
 			targetProxy = C1EEC60A211648C60091E08E /* PBXContainerItemProxy */;
+		};
+		C1EEC62821164C5F0091E08E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1EEC61321164C5E0091E08E /* OmniKitUI */;
+			targetProxy = C1EEC62721164C5F0091E08E /* PBXContainerItemProxy */;
+		};
+		C1EEC63221164D6B0091E08E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43FB610120DDEF26002B996B /* Cartfile */;
+			targetProxy = C1EEC63121164D6B0091E08E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -4565,6 +4686,83 @@
 			};
 			name = Release;
 		};
+		C1EEC62B21164C5F0091E08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OmniKitUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rileylink.OmniKitUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C1EEC62C21164C5F0091E08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OmniKitUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rileylink.OmniKitUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4717,6 +4915,15 @@
 			buildConfigurations = (
 				C1E8D38C2114C8470050B4A9 /* Debug */,
 				C1E8D38D2114C8470050B4A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1EEC62F21164C5F0091E08E /* Build configuration list for PBXNativeTarget "OmniKitUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1EEC62B21164C5F0091E08E /* Debug */,
+				C1EEC62C21164C5F0091E08E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

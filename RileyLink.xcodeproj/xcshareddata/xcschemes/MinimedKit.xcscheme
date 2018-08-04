@@ -48,6 +48,16 @@
                ReferencedContainer = "container:RileyLink.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C1EEC61B21164C5F0091E08E"
+               BuildableName = "OmniKitUITests.xctest"
+               BlueprintName = "OmniKitUITests"
+               ReferencedContainer = "container:RileyLink.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
