@@ -502,6 +502,14 @@
 		C1EEC63621164DC90091E08E /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FB610B20DDF55F002B996B /* LoopKit.framework */; };
 		C1EEC63A21164EC10091E08E /* OmnipodPairingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EEC63821164EC00091E08E /* OmnipodPairingViewController.xib */; };
 		C1EEC63B21164EC10091E08E /* OmnipodPairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EEC63921164EC00091E08E /* OmnipodPairingViewController.swift */; };
+		C1EEC63D21164FFA0091E08E /* OmniPodPumpManager+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EEC63C21164FFA0091E08E /* OmniPodPumpManager+UI.swift */; };
+		C1EEC63F2116A5C90091E08E /* OmnipodPumpManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1EEC63E2116A5C90091E08E /* OmnipodPumpManager.storyboard */; };
+		C1EEC6412116A6110091E08E /* OmnipodPumpManagerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EEC6402116A6110091E08E /* OmnipodPumpManagerSetupViewController.swift */; };
+		C1EEC643211723F30091E08E /* OmnipodSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EEC642211723F30091E08E /* OmnipodSettingsViewController.swift */; };
+		C1EEC6452117257F0091E08E /* OmniKitUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1EEC6442117257F0091E08E /* OmniKitUI.xcassets */; };
+		C1EEC646211725AF0091E08E /* IdentifiableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431185AE1CF25A590059ED98 /* IdentifiableClass.swift */; };
+		C1EEC6472117267E0091E08E /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4345D1CD1DA16AF300BAAD22 /* TimeZone.swift */; };
+		C1EEC6482117268E0091E08E /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBE4501EAD238C0073A0B5 /* TimeInterval.swift */; };
 		C1EF58881B3F93FE001C8C80 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EF58871B3F93FE001C8C80 /* Config.m */; };
 		C1F000481EBE352900F65163 /* RileyLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43722FAE1CB9F7630038B7F2 /* RileyLinkKit.framework */; };
 		C1F0004C1EBE68A600F65163 /* DataFrameMessageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F0004B1EBE68A600F65163 /* DataFrameMessageBody.swift */; };
@@ -1204,6 +1212,11 @@
 		C1EEC61721164C5F0091E08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1EEC63821164EC00091E08E /* OmnipodPairingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OmnipodPairingViewController.xib; sourceTree = "<group>"; };
 		C1EEC63921164EC00091E08E /* OmnipodPairingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnipodPairingViewController.swift; sourceTree = "<group>"; };
+		C1EEC63C21164FFA0091E08E /* OmniPodPumpManager+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OmniPodPumpManager+UI.swift"; sourceTree = "<group>"; };
+		C1EEC63E2116A5C90091E08E /* OmnipodPumpManager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OmnipodPumpManager.storyboard; sourceTree = "<group>"; };
+		C1EEC6402116A6110091E08E /* OmnipodPumpManagerSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnipodPumpManagerSetupViewController.swift; sourceTree = "<group>"; };
+		C1EEC642211723F30091E08E /* OmnipodSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnipodSettingsViewController.swift; sourceTree = "<group>"; };
+		C1EEC6442117257F0091E08E /* OmniKitUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OmniKitUI.xcassets; sourceTree = "<group>"; };
 		C1EF58861B3F93FE001C8C80 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C1EF58871B3F93FE001C8C80 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		C1F0004B1EBE68A600F65163 /* DataFrameMessageBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFrameMessageBody.swift; sourceTree = "<group>"; };
@@ -2187,7 +2200,11 @@
 			children = (
 				C1EEC63721164EC00091E08E /* Pairing */,
 				C1EEC61621164C5F0091E08E /* OmniKitUI.h */,
+				C1EEC6442117257F0091E08E /* OmniKitUI.xcassets */,
 				C1EEC61721164C5F0091E08E /* Info.plist */,
+				C1EEC63C21164FFA0091E08E /* OmniPodPumpManager+UI.swift */,
+				C1EEC63E2116A5C90091E08E /* OmnipodPumpManager.storyboard */,
+				C1EEC642211723F30091E08E /* OmnipodSettingsViewController.swift */,
 			);
 			path = OmniKitUI;
 			sourceTree = "<group>";
@@ -2197,6 +2214,7 @@
 			children = (
 				C1EEC63821164EC00091E08E /* OmnipodPairingViewController.xib */,
 				C1EEC63921164EC00091E08E /* OmnipodPairingViewController.swift */,
+				C1EEC6402116A6110091E08E /* OmnipodPumpManagerSetupViewController.swift */,
 			);
 			path = Pairing;
 			sourceTree = "<group>";
@@ -2845,7 +2863,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EEC6452117257F0091E08E /* OmniKitUI.xcassets in Resources */,
 				C1EEC63A21164EC10091E08E /* OmnipodPairingViewController.xib in Resources */,
+				C1EEC63F2116A5C90091E08E /* OmnipodPumpManager.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3396,6 +3416,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EEC6482117268E0091E08E /* TimeInterval.swift in Sources */,
+				C1EEC6472117267E0091E08E /* TimeZone.swift in Sources */,
+				C1EEC643211723F30091E08E /* OmnipodSettingsViewController.swift in Sources */,
+				C1EEC6412116A6110091E08E /* OmnipodPumpManagerSetupViewController.swift in Sources */,
+				C1EEC646211725AF0091E08E /* IdentifiableClass.swift in Sources */,
+				C1EEC63D21164FFA0091E08E /* OmniPodPumpManager+UI.swift in Sources */,
 				C1EEC63B21164EC10091E08E /* OmnipodPairingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

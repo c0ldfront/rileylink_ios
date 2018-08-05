@@ -193,11 +193,7 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        if podComms.podIsActive {
-            self.interactionState = .currentPodActive
-        } else {
-            self.interactionState = .noActivePod
-        }
+        self.interactionState = .noActivePod
     }
 
     func pair() {
