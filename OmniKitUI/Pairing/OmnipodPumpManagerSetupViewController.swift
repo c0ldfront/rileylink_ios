@@ -44,6 +44,19 @@ public class OmnipodPumpManagerSetupViewController: RileyLinkManagerSetupViewCon
      5. Pump Setup Complete
      */
     
+    override public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        super.navigationController(navigationController, willShow: viewController, animated: animated)
+        
+        // Set state values
+        switch viewController {
+        case let vc as OmnipodPairingViewController:
+            vc.rileyLinkPumpManager = rileyLinkPumpManager
+        default:
+            break
+        }        
+    }
+
+    
     func completeSetup() {
         if let pumpManager = pumpManager {
             setupDelegate?.pumpManagerSetupViewController(self, didSetUpPumpManager: pumpManager)

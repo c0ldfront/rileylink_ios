@@ -391,6 +391,7 @@
 		C1842C251C8FA45100DB42AC /* AlarmSensorPumpEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1842BFB1C8FA45100DB42AC /* AlarmSensorPumpEvent.swift */; };
 		C184875C20BC232F00ABE9E7 /* CorrectionRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C184875B20BC232F00ABE9E7 /* CorrectionRange.swift */; };
 		C184875E20BCDB0000ABE9E7 /* ForecastError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C184875D20BCDB0000ABE9E7 /* ForecastError.swift */; };
+		C189D8992118098A00CA1C50 /* MessageTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189D8982118098A00CA1C50 /* MessageTransport.swift */; };
 		C18C8C531D64123400E043FB /* EnableBolusWizardPumpEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C8C521D64123400E043FB /* EnableBolusWizardPumpEvent.swift */; };
 		C18EB742207EE20100EA002B /* NightscoutProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18EB741207EE20100EA002B /* NightscoutProfile.swift */; };
 		C1A492631D4A5A19008964FF /* IOBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A492621D4A5A19008964FF /* IOBStatus.swift */; };
@@ -1105,6 +1106,7 @@
 		C1842C2A1C90DFB600DB42AC /* NightscoutPumpEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightscoutPumpEvents.swift; sourceTree = "<group>"; };
 		C184875B20BC232F00ABE9E7 /* CorrectionRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectionRange.swift; sourceTree = "<group>"; };
 		C184875D20BCDB0000ABE9E7 /* ForecastError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastError.swift; sourceTree = "<group>"; };
+		C189D8982118098A00CA1C50 /* MessageTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTransport.swift; sourceTree = "<group>"; };
 		C18C8C521D64123400E043FB /* EnableBolusWizardPumpEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnableBolusWizardPumpEvent.swift; sourceTree = "<group>"; };
 		C18EB741207EE20100EA002B /* NightscoutProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightscoutProfile.swift; sourceTree = "<group>"; };
 		C1A492621D4A5A19008964FF /* IOBStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOBStatus.swift; sourceTree = "<group>"; };
@@ -2077,6 +2079,7 @@
 				C1E8D3932114C8680050B4A9 /* PodState.swift */,
 				C1E8D3752114C8460050B4A9 /* OmniKit.h */,
 				C1E8D3762114C8460050B4A9 /* Info.plist */,
+				C189D8982118098A00CA1C50 /* MessageTransport.swift */,
 			);
 			path = OmniKit;
 			sourceTree = "<group>";
@@ -3362,6 +3365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C189D8992118098A00CA1C50 /* MessageTransport.swift in Sources */,
 				C1E8D3A22114C86A0050B4A9 /* BasalDeliveryTable.swift in Sources */,
 				C1E8D39C2114C8690050B4A9 /* PodComms.swift in Sources */,
 				C1E8D3BC2114C88E0050B4A9 /* StatusError.swift in Sources */,

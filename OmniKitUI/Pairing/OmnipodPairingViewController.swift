@@ -9,15 +9,19 @@
 import Foundation
 import OmniKit
 import RileyLinkBLEKit
+import RileyLinkKit
 
 // Implementing flow as described here: https://app.moqups.com/pheltzel@gmail.com/GNBaAhrB1y/view/page/aa9df7b72
 
 public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
     
+    var rileyLinkPumpManager: RileyLinkPumpManager!
+    
+    var podComms: PodComms?
+    var podState: PodState?
+    
     private enum InteractionState {
         case initial
-        case currentPodActive
-        case noActivePod
         case fillNewPod
         case communicationError(during: String, error: Error)
         case priming
@@ -33,7 +37,7 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
         
         var instructions: String {
             switch self {
-            case .noActivePod:
+            case .initial:
                 return NSLocalizedString("No active pod. Activate one now?", comment: "Message for no active pod.")
             case .fillNewPod:
                 return NSLocalizedString("Fill a new pod with insulin.\n\nAfter filling pod, listen for 2 beeps, then press \"Next.\"\n\nNOTE: Do not remove needle cap at this time.", comment: "Message for fill new pod screen")
@@ -58,7 +62,7 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
         
         var okButtonText: String? {
             switch self {
-            case .noActivePod, .checkInfusionSite:
+            case .initial, .checkInfusionSite:
                 return NSLocalizedString("Yes", comment: "Affirmative response to question")
             case .fillNewPod, .prepareSite, .removeBacking:
                 return NSLocalizedString("Next", comment: "Button text for next action")
@@ -71,7 +75,7 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
 
         var cancelButtonText: String? {
             switch self {
-            case .noActivePod, .checkInfusionSite:
+            case .initial, .checkInfusionSite:
                 return NSLocalizedString("No", comment: "Negative response to question")
             case .fillNewPod:
                 return NSLocalizedString("Cancel", comment: "Button text to cancel")
@@ -111,10 +115,7 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
         }
     }
     
-    public let podComms: PodComms
-    public let device: RileyLinkDevice
-    
-    private var interactionState: InteractionState = .noActivePod {
+    private var interactionState: InteractionState = .initial {
         didSet {
             stepInstructions.text = interactionState.instructions
             if let okText = interactionState.okButtonText {
@@ -150,22 +151,9 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
-
-    public init(podComms: PodComms, device: RileyLinkDevice) {
-        self.podComms = podComms
-        self.device = device
-        self.interactionState = .initial
-        
-        super.init(nibName: OmnipodPairingViewController.className, bundle: Bundle(for: OmnipodPairingViewController.self))
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     @IBAction func nextTapped(sender: UIButton) {
         switch interactionState {
-        case .noActivePod:
+        case .initial:
             interactionState = .fillNewPod
         case .fillNewPod:
             pair()
@@ -190,17 +178,15 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
         }
     }
     
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.interactionState = .noActivePod
-    }
-
     func pair() {
-        
         self.interactionState = .priming
         
-        podComms.runSession(withName: "Pairing new pod", using: device) { (session) in
+        guard let podState = self.podState else {
+            return
+        }
+        
+        let device = rileyLinkPumpManager.rileyLinkManager.firstConnectedDevice
+        podComms.runSession(withName: "Pairing new pod", using: device, podState: podState) { (session) in
             do {
 
                 // TODO: Let user choose between current and previously used timezone?

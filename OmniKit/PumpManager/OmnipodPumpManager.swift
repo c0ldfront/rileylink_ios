@@ -47,8 +47,7 @@ public class OmnipodPumpManager: RileyLinkPumpManager, PumpManager {
         super.init(rileyLinkPumpManagerState: state.rileyLinkPumpManagerState, rileyLinkManager: rileyLinkManager)
         
         // Pod communication
-        self.podComms = PodComms(podState: state.podState)
-        self.podComms.delegate = self
+        self.podComms = PodComms(delegate: self)
     }
     
     public required convenience init?(rawState: PumpManager.RawStateValue) {
@@ -114,8 +113,8 @@ public class OmnipodPumpManager: RileyLinkPumpManager, PumpManager {
 
 
 extension OmnipodPumpManager: PodCommsDelegate {
-    public func podComms(_ podComms: PodComms, didChange state: PodState?) {
-        self.state.podState = state!
+    public func podComms(_ podComms: PodComms, didChange state: PodState) {
+        self.state.podState = state
     }
 }
 
