@@ -20,6 +20,7 @@ public enum PodCommsError: Error {
     case unexpectedResponse(response: MessageBlockType)
     case unknownResponseType(rawType: UInt8)
     case noPairedPod
+    case noRileyLinkAvailable
 }
 
 

@@ -15,10 +15,38 @@ import RileyLinkKit
 
 public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
     
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateUIForState()
+    }
+    
     var rileyLinkPumpManager: RileyLinkPumpManager!
     
     var podComms: PodComms?
     var podState: PodState?
+    
+    var pumpManagerState: OmnipodPumpManagerState? {
+        get {
+            guard let podState = podState else {
+                    return nil
+            }
+            
+            return OmnipodPumpManagerState(
+                podState: podState,
+                rileyLinkPumpManagerState: self.rileyLinkPumpManager.rileyLinkPumpManagerState
+            )
+        }
+    }
+
+    var pumpManager: OmnipodPumpManager? {
+        guard let pumpManagerState = pumpManagerState else {
+            return nil
+        }
+        
+        return OmnipodPumpManager(state: pumpManagerState, rileyLinkManager: rileyLinkPumpManager.rileyLinkManager)
+    }
+
     
     private enum InteractionState {
         case initial
@@ -117,36 +145,12 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
     
     private var interactionState: InteractionState = .initial {
         didSet {
-            stepInstructions.text = interactionState.instructions
-            if let okText = interactionState.okButtonText {
-                okButton.setTitle(okText, for: .normal)
-                okButton.isHidden = false
-            } else {
-                okButton.isHidden = true
-            }
-            if let cancelText = interactionState.cancelButtonText {
-                cancelButton.setTitle(cancelText, for: .normal)
-                cancelButton.isHidden = false
-            } else {
-                cancelButton.isHidden = true
-            }
-            if let progress = interactionState.progress {
-                progressView.isHidden = false
-                progressView.progress = progress
-            } else {
-                progressView.isHidden = true
-            }
-            if interactionState.showActivity {
-                self.activityIndicator.startAnimating()
-            } else {
-                self.activityIndicator.stopAnimating()
-            }
+            updateUIForState()
         }
     }
     
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var stepInstructions: UITextView!
-    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var okButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -178,39 +182,110 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
         }
     }
     
+    func updateUIForState() {
+        stepInstructions.text = interactionState.instructions
+        if let okText = interactionState.okButtonText {
+            okButton.setTitle(okText, for: .normal)
+            okButton.isHidden = false
+        } else {
+            okButton.isHidden = true
+        }
+        if let cancelText = interactionState.cancelButtonText {
+            cancelButton.setTitle(cancelText, for: .normal)
+            cancelButton.isHidden = false
+        } else {
+            cancelButton.isHidden = true
+        }
+        if let progress = interactionState.progress {
+            progressView.isHidden = false
+            progressView.progress = progress
+        } else {
+            progressView.isHidden = true
+        }
+        if interactionState.showActivity {
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
     func pair() {
         self.interactionState = .priming
         
-        guard let podState = self.podState else {
+        guard podComms == nil else {
             return
         }
         
-        let device = rileyLinkPumpManager.rileyLinkManager.firstConnectedDevice
-        podComms.runSession(withName: "Pairing new pod", using: device, podState: podState) { (session) in
-            do {
-
-                // TODO: Let user choose between current and previously used timezone?
-                try session.setupNewPOD(timeZone: .currentFixed)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(55)) {
-                    self.interactionState = .prepareSite
-                    self.finishPrime()
+        podComms = PodComms(delegate: self)
+    
+        let deviceSelector = rileyLinkPumpManager.rileyLinkManager.firstConnectedDevice
+        
+        // TODO: Let user choose between current and previously used timezone?
+        podComms?.pair(using: deviceSelector, timeZone: .currentFixed, completion: { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let podState):
+                    self.podState = podState
+                    self.configurePod()
+                case .failure(let error):
+                    self.interactionState = .communicationError(during: "Pairing", error: error)
                 }
-            } catch let error {
+            }
+            
+        })
+    }
+    
+    func configurePod() {
+        
+        guard let podState = podState, let podComms = podComms else {
+            return
+        }
+
+        let deviceSelector = rileyLinkPumpManager.rileyLinkManager.firstConnectedDevice
+
+        podComms.runSession(withName: "Configure pod", using: deviceSelector, podState: podState) { (result) in
+            switch result {
+            case .success(let session):
+                do {
+                    try session.configurePod()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(55)) {
+                        self.interactionState = .prepareSite
+                        self.finishPrime()
+                    }
+                } catch let error {
+                    DispatchQueue.main.async {
+                        self.interactionState = .communicationError(during: "Address assignment", error: error)
+                    }
+                }
+            case .failure(let error):
                 DispatchQueue.main.async {
-                    self.interactionState = .communicationError(during: "Address assignment", error: error)
+                    self.interactionState = .communicationError(during: "Configuration", error: error)
                 }
             }
         }
     }
     
     func finishPrime() {
-        podComms.runSession(withName: "Finish Prime", using: device) { (session) in
-            do {
-                try session.finishPrime()
-            } catch let error {
+        guard let podState = podState, let podComms = podComms else {
+            return
+        }
+        
+        let deviceSelector = rileyLinkPumpManager.rileyLinkManager.firstConnectedDevice
+
+        podComms.runSession(withName: "Finish Prime", using: deviceSelector, podState: podState) { (result) in
+            switch result {
+            case .success(let session):
+                do {
+                    try session.finishPrime()
+                } catch let error {
+                    DispatchQueue.main.async {
+                        self.interactionState = .communicationError(during: "Finish Prime", error: error)
+                    }
+                }
+            case .failure(let error):
                 DispatchQueue.main.async {
-                    self.interactionState = .communicationError(during: "Finish Prime", error: error)
+                    self.interactionState = .communicationError(during: "Finishing Prime", error: error)
                 }
             }
         }
@@ -218,33 +293,47 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
 
     func insertCannula() {
         
-        podComms.runSession(withName: "Insert cannula", using: device) { (session) in
-            do {
-                guard let podState = self.podComms.podState else {
-                    fatalError("insertCannula with no podState")
+        guard let podState = podState, let podComms = podComms else {
+            return
+        }
+        
+        let deviceSelector = rileyLinkPumpManager.rileyLinkManager.firstConnectedDevice
+
+        podComms.runSession(withName: "Insert cannula", using: deviceSelector, podState: podState) { (result) in
+            switch result {
+            case .success(let session):
+                do {
+                    let entry = BasalScheduleEntry(rate: 0.05, duration: .hours(24))
+                    let schedule = BasalSchedule(entries: [entry])
+                    var calendar = Calendar.current
+                    calendar.timeZone = podState.timeZone
+                    let now = Date()
+                    let components = calendar.dateComponents([.day , .month, .year], from: now)
+                    guard let startOfSchedule = calendar.date(from: components) else {
+                        fatalError("invalid date")
+                    }
+                    let scheduleOffset = now.timeIntervalSince(startOfSchedule)
+                    try session.insertCannula(basalSchedule: schedule, scheduleOffset: scheduleOffset)
+                    DispatchQueue.main.async {
+                        self.interactionState = .checkInfusionSite
+                    }
+                } catch let error {
+                    DispatchQueue.main.async {
+                        self.interactionState = .communicationError(during: "Cannula insertion", error: error)
+                    }
                 }
-                let entry = BasalScheduleEntry(rate: 0.05, duration: .hours(24))
-                let schedule = BasalSchedule(entries: [entry])
-                var calendar = Calendar.current
-                calendar.timeZone = podState.timeZone
-                let now = Date()
-                let components = calendar.dateComponents([.day , .month, .year], from: now)
-                guard let startOfSchedule = calendar.date(from: components) else {
-                    fatalError("invalid date")
-                }
-                let scheduleOffset = now.timeIntervalSince(startOfSchedule)
-                try session.insertCannula(basalSchedule: schedule, scheduleOffset: scheduleOffset)
+            case .failure(let error):
                 DispatchQueue.main.async {
-                    self.interactionState = .checkInfusionSite
-                }
-            } catch let error {
-                DispatchQueue.main.async {
-                    self.interactionState = .communicationError(during: "Cannula insertion", error: error)
+                    self.interactionState = .communicationError(during: "Finishing Prime", error: error)
                 }
             }
         }
     }
+}
 
-    
+extension OmnipodPairingViewController: PodCommsDelegate {
+    public func podComms(_ podComms: PodComms, didChange state: PodState) {
+        self.podState = state
+    }
 }
 

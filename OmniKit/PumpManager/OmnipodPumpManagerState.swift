@@ -19,31 +19,25 @@ public struct OmnipodPumpManagerState: RawRepresentable, Equatable {
     
     public var rileyLinkPumpManagerState: RileyLinkPumpManagerState
     
-    public var timeZone: TimeZone
-    
-    public init(podState: PodState, rileyLinkPumpManagerState: RileyLinkPumpManagerState, timeZone: TimeZone) {
+    public init(podState: PodState, rileyLinkPumpManagerState: RileyLinkPumpManagerState) {
         self.podState = podState
         self.rileyLinkPumpManagerState = rileyLinkPumpManagerState
-        self.timeZone = timeZone
     }
     
     public init?(rawValue: RawValue) {
         guard
             let podStateRaw = rawValue["podState"] as? PodState.RawValue,
             let rileyLinkPumpManagerStateRaw = rawValue["rileyLinkPumpManagerState"] as? RileyLinkPumpManagerState.RawValue,
-            let timeZoneSeconds = rawValue["timeZone"] as? Int,
-            
             let podState = PodState(rawValue: podStateRaw),
-            let rileyLinkPumpManagerState = RileyLinkPumpManagerState(rawValue: rileyLinkPumpManagerStateRaw),
-            let timeZone = TimeZone(secondsFromGMT: timeZoneSeconds)
-            else {
-                return nil
+            let rileyLinkPumpManagerState = RileyLinkPumpManagerState(rawValue: rileyLinkPumpManagerStateRaw)
+            else
+        {
+            return nil
         }
         
         self.init(
             podState: podState,
-            rileyLinkPumpManagerState: rileyLinkPumpManagerState,
-            timeZone: timeZone
+            rileyLinkPumpManagerState: rileyLinkPumpManagerState
         )
     }
     
@@ -51,7 +45,6 @@ public struct OmnipodPumpManagerState: RawRepresentable, Equatable {
         return [
             "podState": podState.rawValue,
             "rileyLinkPumpManagerState": rileyLinkPumpManagerState.rawValue,
-            "timeZone": timeZone.secondsFromGMT(),
             
             "version": OmnipodPumpManagerState.version,
         ]
@@ -69,7 +62,6 @@ extension OmnipodPumpManagerState: CustomDebugStringConvertible {
         return [
             "## MinimedPumpManagerState",
             String(reflecting: podState),
-            "timeZone: \(timeZone)",
             String(reflecting: rileyLinkPumpManagerState),
             ].joined(separator: "\n")
     }

@@ -63,6 +63,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextTappedWithSender:" destination="AUc-G8-HgK" eventType="touchUpInside" id="aW5-kP-I0t"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXn-9K-lhK">
                                 <rect key="frame" x="16" y="578" width="113" height="60"/>
@@ -71,6 +74,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelTappedWithSender:" destination="AUc-G8-HgK" eventType="touchUpInside" id="930-O6-s9o"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9V-hU-wts">
                                 <rect key="frame" x="0.0" y="70" width="375" height="491"/>
@@ -102,6 +108,13 @@ NOTE: Do not remove needle cap at this time.</string>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="PJw-6Q-bG1"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="YJt-ie-LDZ" id="ixQ-Wa-tYW"/>
+                        <outlet property="cancelButton" destination="DXn-9K-lhK" id="YBJ-ao-qci"/>
+                        <outlet property="okButton" destination="0An-JR-a5B" id="M0e-TA-l7I"/>
+                        <outlet property="progressView" destination="hkZ-Rw-81h" id="GSW-mE-UwY"/>
+                        <outlet property="stepInstructions" destination="bpO-xV-Qfi" id="6Ou-bH-Q65"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj7-YZ-sGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

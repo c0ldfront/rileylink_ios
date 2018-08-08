@@ -30,74 +30,99 @@ public class PodComms {
         case failure(Error)
     }
     
-    public func pair(using device: RileyLinkDevice, timeZone: TimeZone, completion: @escaping (PairResults) -> Void)
+    public func pair(using deviceSelector: @escaping (_ completion: @escaping (_ device: RileyLinkDevice?) -> Void) -> Void, timeZone: TimeZone, completion: @escaping (PairResults) -> Void)
     {
         sessionQueue.async {
-            let semaphore = DispatchSemaphore(value: 0)
-
-            device.runSession(withName: "Pair Pod") { (commandSession) in
-                
-                self.configureDevice(device, with: commandSession)
-                
-                // Create random address with 20 bits.  Can we use all 24 bits?
-                let newAddress = 0x1f000000 | (arc4random() & 0x000fffff)
-                
-                let transport = MessageTransport(session: commandSession, address: 0xffffffff, ackAddress: newAddress)
-                
-                do {
-                    // Assign Address
-                    let assignAddress = AssignAddressCommand(address: newAddress)
-                    
-                    let response = try transport.send([assignAddress])
-                    guard let config1 = response.messageBlocks[0] as? ConfigResponse else {
-                        let responseType = response.messageBlocks[0].blockType
-                        throw PodCommsError.unexpectedResponse(response: responseType)
-                    }
-                    
-                    // Verify address is set
-                    let activationDate = Date()
-                    let dateComponents = ConfirmPairingCommand.dateComponents(date: activationDate, timeZone: timeZone)
-                    let confirmPairing = ConfirmPairingCommand(address: newAddress, dateComponents: dateComponents, lot: config1.lot, tid: config1.tid)
-                    
-                    let response2 = try transport.send([confirmPairing])
-                    guard let config2 = response2.messageBlocks[0] as? ConfigResponse else {
-                        let responseType = response.messageBlocks[0].blockType
-                        throw PodCommsError.unexpectedResponse(response: responseType)
-                    }
-                    
-                    guard config2.pairingState == .paired else {
-                        throw PodCommsError.invalidData
-                    }
-                    let newPodState = PodState(
-                        address: newAddress,
-                        activatedAt: activationDate,
-                        timeZone: timeZone,
-                        piVersion: String(describing: config2.piVersion),
-                        pmVersion: String(describing: config2.pmVersion),
-                        lot: config2.lot,
-                        tid: config2.tid
-                    )
-                    self.delegate?.podComms(self, didChange: newPodState)
-                    completion(.success(podState: newPodState))
-                } catch let error {
-                    completion(.failure(error))
+            
+            deviceSelector { (device) in
+                guard let device = device else {
+                    completion(.failure(PodCommsError.noRileyLinkAvailable))
+                    return
                 }
 
+                self.sessionQueue.async {
+
+                    let semaphore = DispatchSemaphore(value: 0)
+                    
+                    device.runSession(withName: "Pair Pod") { (commandSession) in
+                        
+                        self.configureDevice(device, with: commandSession)
+                        
+                        // Create random address with 20 bits.  Can we use all 24 bits?
+                        let newAddress = 0x1f000000 | (arc4random() & 0x000fffff)
+                        
+                        let transport = MessageTransport(session: commandSession, address: 0xffffffff, ackAddress: newAddress)
+                        
+                        do {
+                            // Assign Address
+                            let assignAddress = AssignAddressCommand(address: newAddress)
+                            
+                            let response = try transport.send([assignAddress])
+                            guard let config1 = response.messageBlocks[0] as? ConfigResponse else {
+                                let responseType = response.messageBlocks[0].blockType
+                                throw PodCommsError.unexpectedResponse(response: responseType)
+                            }
+                            
+                            // Verify address is set
+                            let activationDate = Date()
+                            let dateComponents = ConfirmPairingCommand.dateComponents(date: activationDate, timeZone: timeZone)
+                            let confirmPairing = ConfirmPairingCommand(address: newAddress, dateComponents: dateComponents, lot: config1.lot, tid: config1.tid)
+                            
+                            let response2 = try transport.send([confirmPairing])
+                            guard let config2 = response2.messageBlocks[0] as? ConfigResponse else {
+                                let responseType = response.messageBlocks[0].blockType
+                                throw PodCommsError.unexpectedResponse(response: responseType)
+                            }
+                            
+                            guard config2.pairingState == .paired else {
+                                throw PodCommsError.invalidData
+                            }
+                            let newPodState = PodState(
+                                address: newAddress,
+                                activatedAt: activationDate,
+                                timeZone: timeZone,
+                                piVersion: String(describing: config2.piVersion),
+                                pmVersion: String(describing: config2.pmVersion),
+                                lot: config2.lot,
+                                tid: config2.tid
+                            )
+                            self.delegate?.podComms(self, didChange: newPodState)
+                            completion(.success(podState: newPodState))
+                        } catch let error {
+                            completion(.failure(error))
+                        }
+                        semaphore.signal()
+                    }
+                    semaphore.wait()
+                }
             }
-            semaphore.wait()
         }
     }
     
-    public func runSession(withName name: String, using device: RileyLinkDevice, podState: PodState, _ block: @escaping (_ session: PodCommsSession) -> Void) {
+    public enum SessionRunResult {
+        case success(session: PodCommsSession)
+        case failure(Error)
+    }
+
+    
+    public func runSession(withName name: String, using deviceSelector: @escaping (_ completion: @escaping (_ device: RileyLinkDevice?) -> Void) -> Void, podState: PodState, _ block: @escaping (_ result: SessionRunResult) -> Void) {
         sessionQueue.async {
             let semaphore = DispatchSemaphore(value: 0)
             
-            device.runSession(withName: name) { (commandSession) in
-                self.configureDevice(device, with: commandSession)
-                let transport = MessageTransport(session: commandSession, address: podState.address)
-                let podSession = PodCommsSession(podState: podState, transport: transport, delegate: self)
-                block(podSession)
-                semaphore.signal()
+            deviceSelector { (device) in
+                guard let device = device else {
+                    block(.failure(PodCommsError.noRileyLinkAvailable))
+                    semaphore.signal()
+                    return
+                }
+            
+                device.runSession(withName: name) { (commandSession) in
+                    self.configureDevice(device, with: commandSession)
+                    let transport = MessageTransport(session: commandSession, address: podState.address)
+                    let podSession = PodCommsSession(podState: podState, transport: transport, delegate: self)
+                    block(.success(session: podSession))
+                    semaphore.signal()
+                }
             }
             
             semaphore.wait()

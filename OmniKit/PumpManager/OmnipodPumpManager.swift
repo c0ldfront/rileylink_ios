@@ -20,7 +20,7 @@ public class OmnipodPumpManager: RileyLinkPumpManager, PumpManager {
     public var pumpReservoirCapacity: Double = 200
     
     public var pumpTimeZone: TimeZone {
-        return state.timeZone
+        return state.podState.timeZone
     }
 
     public func assertCurrentPumpData() {

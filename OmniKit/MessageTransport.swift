@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import os.log
 
 import RileyLinkBLEKit
 
 class MessageTransport {
     
     private let session: CommandSession
+    
+    private let log = OSLog(category: "PodMessageTransport")
     
     private var packetNumber = 0
     private var messageNumber = 0
@@ -99,7 +102,7 @@ class MessageTransport {
         do {
             let responsePacket = try { () throws -> Packet in
                 var firstPacket = true
-                print("Send to POD: \(message)")
+                log.debug("Send: %@", String(describing: message))
                 var dataRemaining = message.encoded()
                 while true {
                     let packetType: PacketType = firstPacket ? .pdm : .con
@@ -114,6 +117,7 @@ class MessageTransport {
                 }()
             
             guard responsePacket.packetType != .ack else {
+                log.debug("Pod responded with ack instead of response: %@", String(describing: responsePacket))
                 incrementMessageNumber()
                 throw PodCommsError.podAckedInsteadOfReturningResponse
             }
@@ -125,10 +129,11 @@ class MessageTransport {
                     do {
                         return try Message(encodedData: responseData)
                     } catch MessageError.notEnoughData {
-                        print("Sending ACK for CON")
+                        log.debug("Sending ACK for CON")
                         let conPacket = try self.exchangePackets(packet: makeAckPacket(), repeatCount: 3, preambleExtension:TimeInterval(milliseconds: 40))
                         
                         guard conPacket.packetType == .con else {
+                            log.debug("Expected CON packet, received; %@", String(describing: conPacket))
                             throw PodCommsError.unexpectedPacketType(packetType: conPacket.packetType)
                         }
                         responseData += conPacket.data
@@ -141,9 +146,10 @@ class MessageTransport {
             try ackUntilQuiet()
             
             guard response.messageBlocks.count > 0 else {
+                log.debug("Empty response")
                 throw PodCommsError.emptyResponse
             }
-            
+            log.debug("Recv: %@", String(describing: response))
             return response            
         } catch let error {
             print("Error during communication with POD: \(error)")
