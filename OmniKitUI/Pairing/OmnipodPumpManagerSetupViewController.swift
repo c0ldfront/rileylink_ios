@@ -16,6 +16,7 @@ import RileyLinkBLEKit
 import RileyLinkKit
 import RileyLinkKitUI
 
+// PumpManagerSetupViewController
 public class OmnipodPumpManagerSetupViewController: RileyLinkManagerSetupViewController {
     
     class func instantiateFromStoryboard() -> OmnipodPumpManagerSetupViewController {
@@ -58,6 +59,22 @@ public class OmnipodPumpManagerSetupViewController: RileyLinkManagerSetupViewCon
 
     
     func completeSetup() {
+        guard let navigationController = navigationController else {
+            return
+        }
+        
+        let viewControllers = navigationController.viewControllers
+        let count = navigationController.viewControllers.count
+        
+        if count >= 1 {
+            switch viewControllers[count - 1] {
+            case let vc as OmnipodPairingViewController:
+                pumpManager = vc.pumpManager
+            default:
+                break
+            }
+        }
+        
         if let pumpManager = pumpManager {
             setupDelegate?.pumpManagerSetupViewController(self, didSetUpPumpManager: pumpManager)
         }

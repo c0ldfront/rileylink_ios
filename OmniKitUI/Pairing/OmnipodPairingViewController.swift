@@ -10,6 +10,7 @@ import Foundation
 import OmniKit
 import RileyLinkBLEKit
 import RileyLinkKit
+import LoopKitUI
 
 // Implementing flow as described here: https://app.moqups.com/pheltzel@gmail.com/GNBaAhrB1y/view/page/aa9df7b72
 
@@ -19,6 +20,10 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
         super.viewDidLoad()
         
         updateUIForState()
+    }
+    
+    open var setupViewController: PumpManagerSetupViewController? {
+        return navigationController as? PumpManagerSetupViewController
     }
     
     var rileyLinkPumpManager: RileyLinkPumpManager!
@@ -169,7 +174,10 @@ public class OmnipodPairingViewController: UIViewController, IdentifiableClass {
             interactionState = .insertingCannula
             insertCannula()
         case .checkInfusionSite:
-            _ = navigationController?.popViewController(animated: true)
+            if let setupViewController = setupViewController as? OmnipodPumpManagerSetupViewController {
+                setupViewController.completeSetup()
+            }
+            //_ = navigationController?.popViewController(animated: true)
         default:
             stepInstructions.text = "\"\(String(describing: sender.title(for: .normal)))\" not handled for state \(String(describing: interactionState))"
         }
