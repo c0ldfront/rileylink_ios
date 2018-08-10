@@ -282,6 +282,8 @@
 		C12198A91C8F2AF200BC374C /* DailyTotal523PumpEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12198A81C8F2AF200BC374C /* DailyTotal523PumpEvent.swift */; };
 		C12198AD1C8F332500BC374C /* TimestampedPumpEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12198AC1C8F332500BC374C /* TimestampedPumpEvent.swift */; };
 		C12198B31C8F730700BC374C /* BolusWizardEstimatePumpEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12198B21C8F730700BC374C /* BolusWizardEstimatePumpEvent.swift */; };
+		C1257286211E03B10061BA2F /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4A9581D1E6357003B8985 /* UITableViewCell.swift */; };
+		C1257287211E06930061BA2F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14FFC601D3D75470049CF85 /* UIColor.swift */; };
 		C12616441B685F0A001FAD87 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C12616431B685F0A001FAD87 /* CoreData.framework */; };
 		C1271B071A9A34E900B7C949 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = C1271B061A9A34E900B7C949 /* Log.m */; };
 		C1274F771D8232580002912B /* DailyTotal515PumpEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1274F761D8232580002912B /* DailyTotal515PumpEvent.swift */; };
@@ -1561,7 +1563,6 @@
 				43709ABA20DF1C6400F941B3 /* RileyLinkSetupTableViewController.swift */,
 				43709AED20E008F300F941B3 /* SetupImageTableViewCell.swift */,
 				43709AEF20E0120F00F941B3 /* SetupImageTableViewCell.xib */,
-				C1B4A9581D1E6357003B8985 /* UITableViewCell.swift */,
 			);
 			path = RileyLinkKitUI;
 			sourceTree = "<group>";
@@ -1614,6 +1615,7 @@
 				43EBE4501EAD238C0073A0B5 /* TimeInterval.swift */,
 				4345D1CD1DA16AF300BAAD22 /* TimeZone.swift */,
 				C14FFC601D3D75470049CF85 /* UIColor.swift */,
+				C1B4A9581D1E6357003B8985 /* UITableViewCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -3421,8 +3423,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1EEC6482117268E0091E08E /* TimeInterval.swift in Sources */,
+				C1257286211E03B10061BA2F /* UITableViewCell.swift in Sources */,
 				C1EEC6472117267E0091E08E /* TimeZone.swift in Sources */,
 				C1EEC643211723F30091E08E /* OmnipodSettingsViewController.swift in Sources */,
+				C1257287211E06930061BA2F /* UIColor.swift in Sources */,
 				C1EEC6412116A6110091E08E /* OmnipodPumpManagerSetupViewController.swift in Sources */,
 				C1EEC646211725AF0091E08E /* IdentifiableClass.swift in Sources */,
 				C1EEC63D21164FFA0091E08E /* OmniPodPumpManager+UI.swift in Sources */,

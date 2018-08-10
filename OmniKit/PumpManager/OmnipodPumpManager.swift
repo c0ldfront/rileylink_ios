@@ -109,7 +109,15 @@ public class OmnipodPumpManager: RileyLinkPumpManager, PumpManager {
     // MARK: Pump
     
     public private(set) var podComms: PodComms!
+    
+    // TODO
+    public func getStateForDevice(_ device: RileyLinkDevice, completion: @escaping (_ deviceState: DeviceState, _ podComms: PodComms) -> Void) {
+        queue.async {
+            completion(self.deviceStates[device.peripheralIdentifier, default: DeviceState()], self.podComms)
+        }
+    }
 }
+
 
 
 extension OmnipodPumpManager: PodCommsDelegate {
