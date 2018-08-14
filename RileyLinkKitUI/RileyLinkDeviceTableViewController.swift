@@ -30,17 +30,17 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
             cellForRow(.version)?.detailTextLabel?.text = firmwareVersion
         }
     }
-
-    private var lastIdle: Date? {
+    
+    private var uptime: TimeInterval? {
         didSet {
             guard isViewLoaded else {
                 return
             }
-
-            cellForRow(.idleStatus)?.setDetailDate(lastIdle, formatter: dateFormatter)
+            
+            cellForRow(.uptime)?.setDetailAge(uptime)
         }
     }
-    
+
     var rssiFetchTimer: Timer? {
         willSet {
             rssiFetchTimer?.invalidate()
@@ -77,9 +77,19 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
     func updateDeviceStatus() {
         device.getStatus { (status) in
             DispatchQueue.main.async {
-                self.lastIdle = status.lastIdle
                 self.firmwareVersion = status.firmwareDescription
             }
+        }
+    }
+    
+    func updateUptime() {
+        device.runSession(withName: "Get stats for uptime") { (session) in
+            do {
+                let statistics = try session.getRileyLinkStatistics()
+                DispatchQueue.main.async {
+                    self.uptime = statistics.uptime
+                }
+            } catch { }
         }
     }
 
@@ -134,6 +144,8 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
         appeared = true
         
         updateRSSI()
+        
+        updateUptime()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -184,7 +196,7 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
         case version
         case rssi
         case connection
-        case idleStatus
+        case uptime
     }
 
     private func cellForRow(_ row: DeviceRow) -> UITableViewCell? {
@@ -232,9 +244,9 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
                 cell.textLabel?.text = NSLocalizedString("Signal Strength", comment: "The title of the cell showing BLE signal strength (RSSI)")
 
                 cell.setDetailRSSI(bleRSSI, formatter: integerFormatter)
-            case .idleStatus:
-                cell.textLabel?.text = NSLocalizedString("On Idle", comment: "The title of the cell showing the last idle")
-                cell.setDetailDate(lastIdle, formatter: dateFormatter)
+            case .uptime:
+                cell.textLabel?.text = NSLocalizedString("Uptime", comment: "The title of the cell showing uptime")
+                cell.setDetailAge(uptime)
             }
         case .commands:
             cell.accessoryType = .disclosureIndicator
@@ -315,6 +327,16 @@ extension RileyLinkDeviceTableViewController: TextFieldTableViewControllerDelega
     }
 }
 
+extension TimeInterval {
+    func format(using units: NSCalendar.Unit) -> String? {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = units
+        formatter.unitsStyle = .abbreviated
+        formatter.zeroFormattingBehavior = .pad
+        
+        return formatter.string(from: self)
+    }
+}
 
 private extension UITableViewCell {
     func setDetailDate(_ date: Date?, formatter: DateFormatter) {
@@ -328,4 +350,17 @@ private extension UITableViewCell {
     func setDetailRSSI(_ decibles: Int?, formatter: NumberFormatter) {
         detailTextLabel?.text = formatter.decibleString(from: decibles) ?? "-"
     }
+    
+    func setDetailAge(_ age: TimeInterval?) {
+        if let age = age {
+            var units: NSCalendar.Unit = [.hour, .minute]
+            if age > .days(1) {
+                units.insert(.day)
+            } else {
+                units.insert(.second)
+            }
+            detailTextLabel?.text = age.format(using: units)
+        }
+    }
+
 }
