@@ -362,6 +362,7 @@ extension PeripheralManager: CBPeripheralDelegate {
     }
 
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        log.debug("didWriteValueFor %@", characteristic)
         commandLock.lock()
 
         if let index = commandConditions.index(where: { (condition) -> Bool in
@@ -383,6 +384,7 @@ extension PeripheralManager: CBPeripheralDelegate {
     }
 
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        log.debug("Did UpdateValueFor %@", characteristic)
         commandLock.lock()
 
         if let index = commandConditions.index(where: { (condition) -> Bool in

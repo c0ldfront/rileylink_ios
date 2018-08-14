@@ -40,12 +40,31 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
             cellForRow(.uptime)?.setDetailAge(uptime)
         }
     }
+    
+    private var frequency: Measurement<UnitFrequency>? {
+        didSet {
+            guard isViewLoaded else {
+                return
+            }
+            
+            cellForRow(.frequency)?.setDetailFrequency(frequency, formatter: frequencyFormatter)
+        }
+    }
 
     var rssiFetchTimer: Timer? {
         willSet {
             rssiFetchTimer?.invalidate()
         }
     }
+    
+    private lazy var frequencyFormatter: MeasurementFormatter = {
+        let formatter = MeasurementFormatter()
+        
+        formatter.numberFormatter = decimalFormatter
+        
+        return formatter
+    }()
+
 
     private var appeared = false
 
@@ -91,6 +110,21 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
                 }
             } catch { }
         }
+    }
+    
+    func updateFrequency() {
+
+        device.runSession(withName: "Get base frequency") { (session) in
+            do {
+                let frequency = try session.readBaseFrequency()
+                DispatchQueue.main.async {
+                    self.frequency = frequency
+                }
+            } catch let error {
+                print("Error: \(error)")
+            }
+        }
+        
     }
 
     // References to registered notification center observers
@@ -145,7 +179,10 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
         
         updateRSSI()
         
+        updateFrequency()
+
         updateUptime()
+        
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -197,6 +234,7 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
         case rssi
         case connection
         case uptime
+        case frequency
     }
 
     private func cellForRow(_ row: DeviceRow) -> UITableViewCell? {
@@ -247,6 +285,9 @@ public class RileyLinkDeviceTableViewController: UITableViewController {
             case .uptime:
                 cell.textLabel?.text = NSLocalizedString("Uptime", comment: "The title of the cell showing uptime")
                 cell.setDetailAge(uptime)
+            case .frequency:
+                cell.textLabel?.text = NSLocalizedString("Frequency", comment: "The title of the cell showing current rileylink frequency")
+                cell.setDetailFrequency(frequency, formatter: frequencyFormatter)
             }
         case .commands:
             cell.accessoryType = .disclosureIndicator
@@ -360,6 +401,16 @@ private extension UITableViewCell {
                 units.insert(.second)
             }
             detailTextLabel?.text = age.format(using: units)
+        } else {
+            detailTextLabel?.text = "?"
+        }
+    }
+    
+    func setDetailFrequency(_ frequency: Measurement<UnitFrequency>?, formatter: MeasurementFormatter) {
+        if let frequency = frequency {
+            detailTextLabel?.text = formatter.string(from: frequency)
+        } else {
+            detailTextLabel?.text = "?"
         }
     }
 
