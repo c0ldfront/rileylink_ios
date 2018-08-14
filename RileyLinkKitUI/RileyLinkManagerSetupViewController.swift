@@ -9,6 +9,7 @@ import UIKit
 import LoopKit
 import LoopKitUI
 import RileyLinkKit
+import RileyLinkBLEKit
 
 
 open class RileyLinkManagerSetupViewController: UINavigationController, PumpManagerSetupViewController, UINavigationControllerDelegate {
@@ -21,7 +22,10 @@ open class RileyLinkManagerSetupViewController: UINavigationController, PumpMana
 
     open weak var setupDelegate: PumpManagerSetupViewControllerDelegate?
 
-    open private(set) var rileyLinkPumpManager: RileyLinkPumpManager?
+    open var rileyLinkDeviceManager: RileyLinkDeviceManager?
+    
+    open var rileyLinkPumpManager: RileyLinkPumpManager?
+
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +36,19 @@ open class RileyLinkManagerSetupViewController: UINavigationController, PumpMana
     open func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         let viewControllers = navigationController.viewControllers
         let count = navigationController.viewControllers.count
+        
+        if rileyLinkDeviceManager == nil {
+            rileyLinkDeviceManager = RileyLinkDeviceManager(autoConnectIDs: [])
+        }
+        
+        if let rileyLinkSetupTableViewController = viewController as? RileyLinkSetupTableViewController {
+            rileyLinkSetupTableViewController.rileyLinkDeviceManager = rileyLinkDeviceManager
+        }
 
-        if count >= 2, let setupViewController = viewControllers[count - 2] as? RileyLinkSetupTableViewController {
-            rileyLinkPumpManager = setupViewController.rileyLinkPumpManager
+        if rileyLinkPumpManager == nil {
+            if count >= 2, let setupViewController = viewControllers[count - 2] as? RileyLinkSetupTableViewController {
+                rileyLinkPumpManager = setupViewController.rileyLinkPumpManager
+            }
         }
     }
 }

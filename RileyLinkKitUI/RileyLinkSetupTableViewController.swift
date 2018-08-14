@@ -9,23 +9,37 @@ import UIKit
 import LoopKit
 import LoopKitUI
 import RileyLinkKit
+import RileyLinkBLEKit
 
 
 public class RileyLinkSetupTableViewController: SetupTableViewController {
+    
+    var rileyLinkPumpManager: RileyLinkPumpManager?
 
-    let rileyLinkPumpManager = RileyLinkPumpManager(rileyLinkPumpManagerState: RileyLinkPumpManagerState(connectedPeripheralIDs: []))
+    var rileyLinkDeviceManager: RileyLinkDeviceManager! {
+        didSet {
+            let rileyLinkPumpManagerState = RileyLinkPumpManagerState(connectedPeripheralIDs: [])
+            
+            let rlPumpManager = RileyLinkPumpManager(
+                rileyLinkPumpManagerState: rileyLinkPumpManagerState,
+                rileyLinkManager: rileyLinkDeviceManager)
+            
+            let dataSource = RileyLinkDevicesTableViewDataSource(
+                rileyLinkPumpManager: rlPumpManager,
+                devicesSectionIndex: Section.devices.rawValue
+            )
+            rileyLinkPumpManager = rlPumpManager
+            
+            dataSource.tableView = tableView
+            dataSource.isScanningEnabled = true
+            devicesDataSource = dataSource
+        }
+    }
 
-    private lazy var devicesDataSource: RileyLinkDevicesTableViewDataSource = {
-        return RileyLinkDevicesTableViewDataSource(
-            rileyLinkPumpManager: rileyLinkPumpManager,
-            devicesSectionIndex: Section.devices.rawValue
-        )
-    }()
+    private var devicesDataSource: RileyLinkDevicesTableViewDataSource!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
-        devicesDataSource.tableView = tableView
 
         tableView.register(SetupImageTableViewCell.nib(), forCellReuseIdentifier: SetupImageTableViewCell.className)
 
@@ -36,14 +50,14 @@ public class RileyLinkSetupTableViewController: SetupTableViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        devicesDataSource.isScanningEnabled = true
+        
+        devicesDataSource?.isScanningEnabled = true
     }
 
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        devicesDataSource.isScanningEnabled = false
+        devicesDataSource?.isScanningEnabled = false
     }
 
     // MARK: - Table view data source
@@ -71,7 +85,11 @@ public class RileyLinkSetupTableViewController: SetupTableViewController {
         case .info:
             return InfoRow.count
         case .devices:
-            return devicesDataSource.tableView(tableView, numberOfRowsInSection: section)
+            if let dataSource = devicesDataSource {
+                return dataSource.tableView(tableView, numberOfRowsInSection: section)
+            } else {
+                return 0
+            }
         }
     }
 
@@ -81,10 +99,8 @@ public class RileyLinkSetupTableViewController: SetupTableViewController {
             switch InfoRow(rawValue: indexPath.row)! {
             case .image:
                 let cell = tableView.dequeueReusableCell(withIdentifier: SetupImageTableViewCell.className, for: indexPath) as! SetupImageTableViewCell
-                let bundle = Bundle(for: type(of: self))
-                cell.mainImageView?.image = UIImage(named: "RileyLink", in: bundle, compatibleWith: cell.traitCollection)
-                cell.mainImageView?.tintColor = UIColor(named: "RileyLink Tint", in: bundle, compatibleWith: cell.traitCollection)
-
+                cell.mainImageView?.image = VisualDesign.rileyLinkImage(compatibleWith: cell.traitCollection)
+                cell.mainImageView?.tintColor = VisualDesign.rileyLinkTint(compatibleWith: cell.traitCollection)
                 return cell
             case .description:
                 var cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell")
@@ -130,7 +146,11 @@ public class RileyLinkSetupTableViewController: SetupTableViewController {
     // MARK: - Navigation
 
     private var shouldContinue: Bool {
-        return devicesDataSource.rileyLinkPumpManager.rileyLinkPumpManagerState.connectedPeripheralIDs.count > 0
+        if let dataSource = devicesDataSource {
+            return dataSource.rileyLinkPumpManager.rileyLinkPumpManagerState.connectedPeripheralIDs.count > 0
+        } else {
+            return false
+        }
     }
 
     @objc private func deviceConnectionStateDidChange() {

@@ -11,7 +11,7 @@ import RileyLinkBLEKit
 open class RileyLinkPumpManager {
     public init(rileyLinkPumpManagerState: RileyLinkPumpManagerState, rileyLinkManager: RileyLinkDeviceManager? = nil) {
         lockedRileyLinkPumpManagerState = Locked(rileyLinkPumpManagerState)
-
+        
         self.rileyLinkManager = rileyLinkManager ?? RileyLinkDeviceManager(autoConnectIDs: rileyLinkPumpManagerState.connectedPeripheralIDs)
 
         // Listen for device notifications

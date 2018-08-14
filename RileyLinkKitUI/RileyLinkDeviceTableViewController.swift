@@ -328,18 +328,4 @@ private extension UITableViewCell {
     func setDetailRSSI(_ decibles: Int?, formatter: NumberFormatter) {
         detailTextLabel?.text = formatter.decibleString(from: decibles) ?? "-"
     }
-
-    func setAwakeUntil(_ awakeUntil: Date?, formatter: DateFormatter) {
-        switch awakeUntil {
-        case let until? where until.timeIntervalSinceNow < 0:
-            textLabel?.text = NSLocalizedString("Last Awake", comment: "The title of the cell describing an awake radio")
-            setDetailDate(until, formatter: formatter)
-        case let until?:
-            textLabel?.text = NSLocalizedString("Awake Until", comment: "The title of the cell describing an awake radio")
-            setDetailDate(until, formatter: formatter)
-        default:
-            textLabel?.text = NSLocalizedString("Listening Off", comment: "The title of the cell describing no radio awake data")
-            detailTextLabel?.text = nil
-        }
-    }
 }
