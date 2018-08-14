@@ -372,8 +372,9 @@ extension TimeInterval {
     func format(using units: NSCalendar.Unit) -> String? {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = units
-        formatter.unitsStyle = .abbreviated
-        formatter.zeroFormattingBehavior = .pad
+        formatter.unitsStyle = .full
+        formatter.zeroFormattingBehavior = .dropLeading
+        formatter.maximumUnitCount = 2
         
         return formatter.string(from: self)
     }
@@ -394,15 +395,9 @@ private extension UITableViewCell {
     
     func setDetailAge(_ age: TimeInterval?) {
         if let age = age {
-            var units: NSCalendar.Unit = [.hour, .minute]
-            if age > .days(1) {
-                units.insert(.day)
-            } else {
-                units.insert(.second)
-            }
-            detailTextLabel?.text = age.format(using: units)
+            detailTextLabel?.text = age.format(using: [.day, .hour, .minute])
         } else {
-            detailTextLabel?.text = "?"
+            detailTextLabel?.text = ""
         }
     }
     
@@ -410,7 +405,7 @@ private extension UITableViewCell {
         if let frequency = frequency {
             detailTextLabel?.text = formatter.string(from: frequency)
         } else {
-            detailTextLabel?.text = "?"
+            detailTextLabel?.text = ""
         }
     }
 
