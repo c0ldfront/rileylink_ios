@@ -28,7 +28,7 @@ class DeviceDataManager {
         }
     }
 
-    private var autoConnectPeripheralIDs: Set<String> = Config.sharedInstance().autoConnectIds as! Set<String> {
+    var autoConnectPeripheralIDs: Set<String> = Config.sharedInstance().autoConnectIds as! Set<String> {
         didSet {
             Config.sharedInstance().autoConnectIds = autoConnectPeripheralIDs
         }

@@ -29,7 +29,7 @@ class MainViewController: RileyLinkSettingsViewController {
         if let rlPumpManager = deviceDataManager.pumpManager as? RileyLinkPumpManager {
             rileyLinkPumpManager = rlPumpManager
         } else {
-            let rileyLinkPumpManagerState = RileyLinkPumpManagerState(connectedPeripheralIDs: [])
+            let rileyLinkPumpManagerState = RileyLinkPumpManagerState(connectedPeripheralIDs: deviceDataManager.autoConnectPeripheralIDs)
             rileyLinkPumpManager = RileyLinkPumpManager(
                 rileyLinkPumpManagerState: rileyLinkPumpManagerState,
                 rileyLinkManager: deviceDataManager.rileyLinkDeviceManager)
